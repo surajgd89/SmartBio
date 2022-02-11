@@ -13,7 +13,7 @@ a {
 //PAGE CLASSES
 
 .main-container {
-    padding: 0;
+    position: relative;
 }
 
 .container {
@@ -47,7 +47,7 @@ a {
         max-width: 280px;
         height: 100%;
         transform: translateX(-100%);
-        transition: all 500ms;
+        transition: all 700ms;
         z-index: 2;
         overflow-x: auto;
 
@@ -151,5 +151,26 @@ a {
         .description {
             line-height: 1.8;
         }
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 500ms;
+    background: rgba(0, 0, 0, 0.75);
+
+    &.active {
+        z-index: 1;
+        opacity: 1;
+        visibility: visible;
     }
 }

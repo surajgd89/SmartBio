@@ -5,11 +5,11 @@ import Intro from '../../components/intro/Intro';
 function Header(props) {
     const IsbreakpointXL = props.breakpoint.XL;
     const IsbreakpointSM = props.breakpoint.SM;
-    const handleToggle = props.togglemenu;
-    const fixedClassToggle = props.fixedHeader;
+    const sidebarToggle = props.sidebarFlag;
+    const scrollTop = props.headerFlag;
     return (
-        <header className={fixedClassToggle ? 'header fixed' : 'header'}>
-            <div className='toggle' onClick={handleToggle}><i className='fal fa-bars'></i></div>
+        <header className={scrollTop ? 'header fixed' : 'header'}>
+            <div className='toggle' onClick={sidebarToggle}><i className='fal fa-bars'></i></div>
             <ProfilePicture />
             {IsbreakpointXL ? null : <Intro />}
             {IsbreakpointSM ? null : <Intro />}

@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import useScrollBlock from './vendor/useScrollBlock/useScrollBlock';
 import ProfilePicture from './components/profile-picture/ProfilePicture';
 import AboutMe from './components/about-me/AboutMe';
 import PersonalInfo from './components/personal-info/PersonalInfo';
@@ -25,13 +26,14 @@ function App() {
     const [breakpointLG, setBreakpointLG] = useState(false);
     const [breakpointMD, setBreakpointMD] = useState(false);
     const [breakpointSM, setBreakpointSM] = useState(false);
-    const [isActive, setActive] = useState(false);
-    const [scroll, setScroll] = useState(false)
+
+    const [SidebarActive, setSidebarActive] = useState(false);
+    const [blockScroll, allowScroll] = useScrollBlock();
+    const [scrollTop, setScrollTop] = useState(false);
 
     useEffect(() => {
-
-        window.addEventListener("scroll", () => {
-            setScroll(window.scrollY > 80)
+        window.addEventListener('scroll', () => {
+            setScrollTop(window.scrollY > 80);
         });
     }, []);
 
@@ -51,7 +53,7 @@ function App() {
     function Sidebar(props) {
         const IsbreakpointXL = props.breakpoint;
         if (IsbreakpointXL) {
-            return <Navigation togglemenu={handleToggle} />;
+            return <Navigation sidebarFlag={sidebarToggle} />;
         } else {
             return (
                 <>
@@ -71,16 +73,16 @@ function App() {
         if (IsbreakpointXL) {
             return (
                 <>
-                    <AboutMe />
-                    <Experience />
-                    <Skills />
-                    <KeyResponsiblities />
-                    <Projects />
-                    <Awards />
-                    <Education />
-                    <PersonalInfo />
-                    <References />
-                    <FollowMe />
+                    <AboutMe name="AboutMe" />
+                    <Experience name="Experience" />
+                    <Skills name="Skills" />
+                    <KeyResponsiblities name="KeyResponsiblities" />
+                    <Projects name="Projects" />
+                    <Awards name="Awards" />
+                    <Education name='Education' />
+                    <PersonalInfo name="PersonalInfo" />
+                    <References name="References" />
+                    <FollowMe name="FollowMe" />
                 </>
             );
         } else {
@@ -96,34 +98,39 @@ function App() {
         }
     }
 
-    function handleToggle() {
-        setActive(!isActive);
+    function sidebarToggle() {
+        setSidebarActive(!SidebarActive);
     }
 
     return (
         <div className="main-container">
             <div className="container">
-                <div className={isActive ? 'sidebar open' : 'sidebar'} >
+                <div className={SidebarActive ? 'sidebar open' : 'sidebar'}>
+                    {SidebarActive ? blockScroll() : allowScroll()}
                     <Sidebar breakpoint={breakpointXL} />
                 </div>
                 <div className="wrapper">
                     {breakpointXL ? (
-                        <Header togglemenu={handleToggle} fixedHeader={scroll}
+                        <Header
+                            sidebarFlag={sidebarToggle}
+                            headerFlag={scrollTop}
                             breakpoint={{ XL: breakpointXL, SM: breakpointSM }}
                         />
                     ) : null}
-
                     <div className="content">
                         {breakpointXL ? null : <Intro />}
                         {breakpointSM ? <Intro /> : null}
-                        <CareerOverview />
+                        <CareerOverview name={CareerOverview} />
                         <Content breakpoint={breakpointXL} />
-
                     </div>
-                    <Declare />
+                    <Declare breakpoint={breakpointXL} />
                     <Footer />
                 </div>
             </div>
+            <div
+                className={SidebarActive ? 'overlay active' : 'overlay'}
+                onClick={sidebarToggle}
+            ></div>
         </div>
     );
 }

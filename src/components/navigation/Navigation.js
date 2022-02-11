@@ -1,47 +1,51 @@
 import './navigation.css';
-import React, { useState } from 'react';
+import { Link } from 'react-scroll'
+
 function Navigation(props) {
-    const handleToggle = props.togglemenu;
+    const sidebarToggle = props.sidebarFlag;
+
     return (
-        <nav className="navigation">
+        <nav className="navigation" >
             <div className="action">
-                <button className="close" onClick={handleToggle}>
+                <button className="close" onClick={sidebarToggle}>
                     <i className="fal fa-times"></i>
                 </button>
             </div>
             <ul>
                 <li>
-                    <a href="">Career Overview</a>
+                    <Link activeClass="active" to="CareerOverview" spy={true} smooth={true} offset={-100} duration={1000}>Career Overview</Link>
                 </li>
                 <li>
-                    <a href="">About Me</a>
+                    <Link to="AboutMe" spy={true} smooth={true} offset={-100} duration={1000}>About Me</Link>
                 </li>
                 <li>
-                    <a href="">Experience</a>
+                    <Link to="Experience" spy={true} smooth={true} offset={-100} duration={1000}>Experience</Link>
                 </li>
                 <li>
-                    <a href="">Skills</a>
+                    <Link to="Skills" spy={true} smooth={true} offset={-100} duration={1000}>Skills</Link>
                 </li>
                 <li>
-                    <a href="">Key Responsiblities</a>
+                    <Link to="KeyResponsiblities" spy={true} smooth={true} offset={-100} duration={1000}>Key Responsiblities</Link>
                 </li>
                 <li>
-                    <a href="">Projects</a>
+                    <Link to="Projects" spy={true} smooth={true} offset={-100} duration={1000}>Projects</Link>
                 </li>
                 <li>
-                    <a href="">Awards</a>
+                    <Link to="Awards" spy={true} smooth={true} offset={-100} duration={1000}>Awards</Link>
                 </li>
                 <li>
-                    <a href="">Education</a>
+                    <Link to="Education" spy={true} smooth={true} offset={-100} duration={1000}>
+                        Education
+                    </Link>
                 </li>
                 <li>
-                    <a href="">Personal Info</a>
+                    <Link to="PersonalInfo" spy={true} smooth={true} offset={-100} duration={500}>Personal Info</Link>
                 </li>
                 <li>
-                    <a href="">References</a>
+                    <Link to="References" spy={true} smooth={true} offset={-100} duration={500}>References</Link>
                 </li>
                 <li>
-                    <a href="">Follow Me</a>
+                    <Link to="FollowMe" spy={true} smooth={true} offset={-100} duration={500}>Follow Me</Link>
                 </li>
             </ul>
         </nav>

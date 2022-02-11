@@ -30,4 +30,23 @@
             color: var(--primary-half);
         }
     }
+    .action-sec {
+        display: flex;
+        align-items: center;
+        margin-top: 25px;
+        .download-btn {
+            display: inline-flex;
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 20px;
+            align-items: center;
+            margin: auto;
+            text-decoration: none;
+            border-radius: 2px;
+
+            i {
+                margin-right: 10px;
+            }
+        }
+    }
 }
