@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/DigitalResume/static/css/main.ed820565.css",
+    "main.js": "/DigitalResume/static/js/main.1d927de9.js",
+    "static/js/787.e47844a4.chunk.js": "/DigitalResume/static/js/787.e47844a4.chunk.js",
+    "static/media/profile-picture.jpg": "/DigitalResume/static/media/profile-picture.5f1ed9346a025c8030d0.jpg",
+    "static/media/Resume.pdf": "/DigitalResume/static/media/Resume.b1cca84454835dd08089.pdf",
+    "static/media/coreldraw.png": "/DigitalResume/static/media/coreldraw.c11169c43cd7515d004f.png",
+    "static/media/jquery.png": "/DigitalResume/static/media/jquery.ca9959da51d441f0bbc3.png",
+    "static/media/css.png": "/DigitalResume/static/media/css.154fc5f7c05edb5a04c1.png",
+    "static/media/html.png": "/DigitalResume/static/media/html.ddd7dc29309efefeb59a.png",
+    "static/media/sass.png": "/DigitalResume/static/media/sass.e133e7f9a1a9ec90b37b.png",
+    "static/media/react.png": "/DigitalResume/static/media/react.fbf4a0d447ec75d4500b.png",
+    "static/media/xd.png": "/DigitalResume/static/media/xd.974ca1bb90c4e74fe54b.png",
+    "static/media/vscode.png": "/DigitalResume/static/media/vscode.350ae7f4119f44d61f91.png",
+    "static/media/photoshop.png": "/DigitalResume/static/media/photoshop.d5222c3be77d67c7e346.png",
+    "index.html": "/DigitalResume/index.html",
+    "main.ed820565.css.map": "/DigitalResume/static/css/main.ed820565.css.map",
+    "main.1d927de9.js.map": "/DigitalResume/static/js/main.1d927de9.js.map",
+    "787.e47844a4.chunk.js.map": "/DigitalResume/static/js/787.e47844a4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed820565.css",
+    "static/js/main.1d927de9.js"
+  ]
+}
