@@ -148,13 +148,19 @@
 
 @media (max-width: 767.98px) {
   .header .action a {
-    padding: 0 15px;
+    padding: 0 25px;
   }
 }
 
 @media (max-width: 575.98px) {
   .header .action a {
     padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .action a {
+    padding: 0 15px;
   }
 }
 
