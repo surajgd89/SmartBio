@@ -43,6 +43,11 @@
   display: flex;
   padding: 10px 0;
   color: #fff;
+  text-decoration: none;
+}
+
+.navigation ul li a.active {
+  color: var(--secondary);
 }
 
 .navigation ul li a:hover, .navigation ul li a:focus {

@@ -1,14 +1,34 @@
 import './header.css';
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { GlobalInfo } from '../../App'
 import ResumeFile from '../../Resume.pdf';
 import ProfilePicture from '../../components/profile-picture/ProfilePicture';
 import Intro from '../../components/intro/Intro';
+
 function Header(props) {
+
     const IsbreakpointXL = props.breakpoint.XL;
     const IsbreakpointSM = props.breakpoint.SM;
     const sidebarToggle = props.sidebarFlag;
-    const scrollTop = props.headerFlag;
+    const fixedHeader = props.headerFlag;
+
+    const HeaderRef = useRef();
+    const [height, setHeight] = useState(null);
+    const { getHeaderHt } = useContext(GlobalInfo);
+
+
+    const getHeight = () => {
+        const currentheight = HeaderRef.current.clientHeight;
+        setHeight(currentheight);
+    };
+
+    useEffect(() => {
+        getHeight();
+        getHeaderHt(height)
+    });
+
     return (
-        <header className={scrollTop ? 'header fixed' : 'header'}>
+        <header className={fixedHeader ? 'header fixed' : 'header'} ref={HeaderRef}>
             <div className='toggle' onClick={sidebarToggle}><i className='fal fa-bars'></i></div>
             <ProfilePicture />
             {IsbreakpointXL ? null : <Intro />}
@@ -27,7 +47,7 @@ function Header(props) {
                     <span>PDF</span>
                 </a>
             </div>
-        </header >
+        </header>
     );
 }
 export default Header;
