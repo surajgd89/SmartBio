@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/SmartBio/static/css/main.4b11e786.css",
-    "main.js": "/SmartBio/static/js/main.c45e2882.js",
+    "main.css": "/SmartBio/static/css/main.aeae3055.css",
+    "main.js": "/SmartBio/static/js/main.c13b3c9d.js",
     "static/js/787.e47844a4.chunk.js": "/SmartBio/static/js/787.e47844a4.chunk.js",
     "static/media/profile-picture.jpg": "/SmartBio/static/media/profile-picture.5f1ed9346a025c8030d0.jpg",
     "static/media/Resume.pdf": "/SmartBio/static/media/Resume.b1cca84454835dd08089.pdf",
@@ -885,12 +885,12 @@
     "static/media/pro-fa-brands-400-5.0.1.woff2": "/SmartBio/static/media/pro-fa-brands-400-5.0.1.bbe3e0dfaaa7f8c4254f.woff2",
     "static/media/pro-fa-solid-900-5.8.2.woff2": "/SmartBio/static/media/pro-fa-solid-900-5.8.2.7d3b576672410c68f6a3.woff2",
     "static/media/pro-fa-solid-900-5.4.1.woff2": "/SmartBio/static/media/pro-fa-solid-900-5.4.1.b6114716dc9385bd67c1.woff2",
-    "main.4b11e786.css.map": "/SmartBio/static/css/main.4b11e786.css.map",
-    "main.c45e2882.js.map": "/SmartBio/static/js/main.c45e2882.js.map",
+    "main.aeae3055.css.map": "/SmartBio/static/css/main.aeae3055.css.map",
+    "main.c13b3c9d.js.map": "/SmartBio/static/js/main.c13b3c9d.js.map",
     "787.e47844a4.chunk.js.map": "/SmartBio/static/js/787.e47844a4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b11e786.css",
-    "static/js/main.c45e2882.js"
+    "static/css/main.aeae3055.css",
+    "static/js/main.c13b3c9d.js"
   ]
 }
