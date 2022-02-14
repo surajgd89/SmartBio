@@ -10,15 +10,12 @@ function Header(props) {
     const IsbreakpointXL = props.breakpoint.XL;
     const IsbreakpointSM = props.breakpoint.SM;
     const sidebarToggle = props.sidebarFlag;
-    const fixedHeader = props.headerFlag;
-
-    const HeaderRef = useRef();
+    const fixed = props.fixed;
+    const header = useRef();
     const [height, setHeight] = useState(null);
     const { getHeaderHt } = useContext(GlobalInfo);
-
-
     const getHeight = () => {
-        const currentheight = HeaderRef.current.clientHeight;
+        const currentheight = header.current.clientHeight;
         setHeight(currentheight);
     };
 
@@ -28,7 +25,7 @@ function Header(props) {
     });
 
     return (
-        <header className={fixedHeader ? 'header fixed' : 'header'} ref={HeaderRef}>
+        <header className={fixed ? 'header fixed' : 'header'} ref={header}>
             <div className='toggle' onClick={sidebarToggle}><i className='fal fa-bars'></i></div>
             <ProfilePicture />
             {IsbreakpointXL ? null : <Intro />}

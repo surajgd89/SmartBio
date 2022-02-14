@@ -23,36 +23,37 @@ import Footer from './components/footer/Footer';
 export const GlobalInfo = createContext();
 
 function App() {
-
-    const [width, setWidth] = useState(window.innerWidth);
-    const [breakpointXL, setBreakpointXL] = useState(false);
-    const [breakpointLG, setBreakpointLG] = useState(false);
-    const [breakpointMD, setBreakpointMD] = useState(false);
-    const [breakpointSM, setBreakpointSM] = useState(false);
-    const [SidebarActive, setSidebarActive] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+    const [headerHeight, setHeaderHeight] = useState(false);
     const [blockScroll, allowScroll] = useScrollBlock();
-    const [scrollTop, setScrollTop] = useState(false);
-    const [headerHt, setHeaderHt] = useState(false);
+    const [isXL, setIsXL] = useState(false);
+    const [isLG, setIsLG] = useState(false);
+    const [isMD, setIsMD] = useState(false);
+    const [isSM, setIsSM] = useState(false);
+    const [isSidebarActive, setIsSidebarActive] = useState(false);
+    const [isHeaderFixed, setIsHeaderFixed] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            setScrollTop(window.scrollY > 80);
+            setfixed(window.scrollY > 80);
         });
-        getHeaderHt();
-        scroll.scrollToTop();
+        getHeaderHeight();
+        goToTop();
     }, []);
 
     useEffect(() => {
-        updateDimensions();
-        window.addEventListener('resize', updateDimensions);
+        getDimensions();
+        window.addEventListener('resize', getDimensions);
+        console.log(globalData);
     });
 
-    const updateDimensions = () => {
+    const getDimensions = () => {
         setWidth(window.innerWidth);
-        width < 1200 ? setBreakpointXL(true) : setBreakpointXL(false);
-        width < 992 ? setBreakpointLG(true) : setBreakpointLG(false);
-        width < 768 ? setBreakpointMD(true) : setBreakpointMD(false);
-        width < 576 ? setBreakpointSM(true) : setBreakpointSM(false);
+        (windowWidth < 1200) ? setIsXL(true) : setIsXL(false);
+        (windowWidth < 992) ? setIsLG(true) : setIsLG(false);
+        (windowWidth < 768) ? setIsMD(true) : setIsMD(false);
+        (windowWidth < 576) ? setIsSM(true) : setIsSM(false);
     };
 
     function Sidebar(props) {
@@ -104,42 +105,71 @@ function App() {
     }
 
     function sidebarToggle() {
-        setSidebarActive(!SidebarActive);
+        setIsSidebarActive(!isSidebarActive);
     };
 
-    const getHeaderHt = (height) => {
-        setHeaderHt(height)
+    const getHeaderHeight = (height) => {
+        setHeaderHeight(height)
     };
+
+    const goToTop = () => {
+        scroll.scrollToTop();
+    }
+
+    const appData = [
+        {
+            "sidebar": isActive,
+            "breakpoint": {
+                "xl": isXL,
+                "lg": isLG,
+                "md": isMD,
+                "sm": isSM,
+            },
+            "window": {
+                "width": windowWidth,
+                "height": windowHeight,
+            },
+            "scroll": {
+                "allow": blockScroll(),
+                "block": allowScroll(),
+            },
+            "header": {
+                "height": headerHeight,
+                "fixed": isfixed,
+            },
+        }
+    ];
+
 
     return (
-        <GlobalInfo.Provider value={{ getHeaderHt: getHeaderHt, headerHt: headerHt }}>
+        <GlobalInfo.Provider value={appData}>
             <div className="main-container">
                 <div className="container">
-                    <div className={SidebarActive ? 'sidebar open' : 'sidebar'}>
-                        {SidebarActive ? blockScroll() : allowScroll()}
-                        <Sidebar breakpoint={breakpointXL} />
+                    <div className={isSidebarActive ? 'sidebar open' : 'sidebar'}>
+                        {isSidebarActive ? blockScroll() : allowScroll()}
+                        <Sidebar breakpoint={isXL} />
                     </div>
                     <div className="wrapper">
-                        {breakpointXL ? (
+                        {isXL ? (
                             <Header
                                 sidebarFlag={sidebarToggle}
-                                headerFlag={scrollTop}
-                                breakpoint={{ XL: breakpointXL, SM: breakpointSM }}
+                                headerFlag={fixed}
+                                breakpoint={{ XL: isXL, SM: isSM }}
                             />
                         ) : null}
                         <div className="content">
-                            {breakpointXL ? null : <Intro />}
-                            {breakpointSM ? <Intro /> : null}
+                            {isXL ? null : <Intro />}
+                            {isSM ? <Intro /> : null}
                             <CareerOverview name='career-overview' />
-                            <Content breakpoint={breakpointXL} />
+                            <Content breakpoint={isXL} />
                         </div>
-                        <Declare breakpoint={breakpointXL} />
+                        <Declare breakpoint={isXL} />
                         <Footer />
 
                     </div>
                 </div>
                 <div
-                    className={SidebarActive ? 'overlay active' : 'overlay'}
+                    className={isSidebarActive ? 'overlay active' : 'overlay'}
                     onClick={sidebarToggle}
                 ></div>
             </div>

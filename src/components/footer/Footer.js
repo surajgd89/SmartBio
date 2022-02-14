@@ -1,11 +1,11 @@
 import './footer.css';
 function Footer() {
 
-    let year = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
 
     return (
         <footer className='footer' >
-            &copy; {year}, Designed &amp; Developed by <strong>Suraj Patil</strong>. All rights reserved.
+            &copy; {currentYear}, Designed &amp; Developed by <strong>Suraj Patil</strong>. All rights reserved.
         </footer>
     );
 }
