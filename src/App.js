@@ -1,7 +1,6 @@
 import './App.css';
-
 import React, { useState, useEffect, createContext, useRef } from 'react';
-import { animateScroll as scroll } from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll';
 import useScrollBlock from './vendor/useScrollBlock/useScrollBlock';
 import ProfilePicture from './components/profile-picture/ProfilePicture';
 import AboutMe from './components/about-me/AboutMe';
@@ -32,37 +31,29 @@ function App() {
     const [SM, setSM] = useState(false);
     const [SidebarActive, setSidebarActive] = useState(false);
     const [HeaderFixed, setHeaderFixed] = useState(false);
-    const [HeaderHeight, setHeaderHeight] = useState(null);
-
-    //const getPaddingLeft = useRef();
-    //const [PaddingLeft, setPaddingLeft] = useState(getPaddingLeft.current.Style.paddingLeft);
-
+    const ContentDiv = useRef();
+    const [ContentOffsetTop, setContentOffsetTop] = useState(null);
 
     const getDimensions = () => {
         setWindowWidth(window.innerWidth);
         setWindowHeight(window.innerHeight);
-        (WindowWidth < 1200) ? setXL(true) : setXL(false);
-        (WindowWidth < 992) ? setLG(true) : setLG(false);
-        (WindowWidth < 768) ? setMD(true) : setMD(false);
-        (WindowWidth < 576) ? setSM(true) : setSM(false);
+        WindowWidth < 1200 ? setXL(true) : setXL(false);
+        WindowWidth < 992 ? setLG(true) : setLG(false);
+        WindowWidth < 768 ? setMD(true) : setMD(false);
+        WindowWidth < 576 ? setSM(true) : setSM(false);
     };
 
     function sidebarToggle() {
         setSidebarActive(!SidebarActive);
-    };
+    }
 
-    const getHeaderHeight = (height) => {
-        setHeaderHeight(height);
+    const getOffsetTop = () => {
+        setContentOffsetTop(ContentDiv.current.offsetTop);
     };
-
-    // const getContentPadding = () => {
-    //     const pLeft = getPaddingLeft.current.Style.paddingLeft;
-    //     setPaddingLeft(pLeft);
-    // }
 
     const goToTop = () => {
         scroll.scrollToTop();
-    }
+    };
 
     function Sidebar(props) {
         const XL = props.breakpoint;
@@ -94,7 +85,7 @@ function App() {
                     <KeyResponsiblities name="key-responsiblities" />
                     <Projects name="projects" />
                     <Awards name="awards" />
-                    <Education name='education' />
+                    <Education name="education" />
                     <PersonalInfo name="personal-info" />
                     <References name="references" />
                     <FollowMe name="follow-Me" />
@@ -114,52 +105,42 @@ function App() {
     }
 
     useEffect(() => {
+        window.addEventListener('resize', getDimensions);
         window.addEventListener('scroll', () => {
             setHeaderFixed(window.scrollY > 80);
         });
-        getHeaderHeight();
-        //getContentPadding()
-        //goToTop();
-    }, []);
-
-    useEffect(() => {
         getDimensions();
-        window.addEventListener('resize', getDimensions);
+        getOffsetTop();
 
+        //goToTop();
     });
 
-
     const ApplicationData = {
-        "sidebar": {
-            "active": SidebarActive,
-            "sidebarToggle": sidebarToggle,
+        sidebar: {
+            active: SidebarActive,
+            sidebarToggle: sidebarToggle,
         },
-        // "content": {
-        //     "paddingL": PaddingLeft
-        // },
-        "breakpoint": {
-            "xl": XL,
-            "lg": LG,
-            "md": MD,
-            "sm": SM,
+        content: {
+            offsetTop: ContentOffsetTop,
         },
-        "window": {
-            "width": WindowWidth,
-            "height": WindowHeight,
+        breakpoint: {
+            xl: XL,
+            lg: LG,
+            md: MD,
+            sm: SM,
         },
-        "scroll": {
-            "blockScroll": blockScroll(),
-            "allowScroll": allowScroll(),
+        window: {
+            width: WindowWidth,
+            height: WindowHeight,
         },
-        "header": {
-            'getHeaderHeight': getHeaderHeight,
-            "height": HeaderHeight,
-            "fixed": HeaderFixed,
+        scroll: {
+            blockScroll: blockScroll(),
+            allowScroll: allowScroll(),
         },
-
-    }
-
-
+        header: {
+            fixed: HeaderFixed,
+        },
+    };
     return (
         <AppData.Provider value={{ ApplicationData }}>
             <div className="main-container">
@@ -169,18 +150,15 @@ function App() {
                         <Sidebar breakpoint={XL} />
                     </div>
                     <div className="wrapper">
-                        {XL ? (
-                            <Header />
-                        ) : null}
-                        <div className="content" >
+                        {XL ? <Header /> : null}
+                        <div className="content" ref={ContentDiv}>
                             {XL ? null : <Intro />}
                             {SM ? <Intro /> : null}
-                            <CareerOverview name='career-overview' />
+                            <CareerOverview name="career-overview" />
                             <Content breakpoint={XL} />
                         </div>
-                        <Declare breakpoint={XL} />
+                        <Declare />
                         <Footer />
-
                     </div>
                 </div>
                 <div
@@ -188,7 +166,7 @@ function App() {
                     onClick={sidebarToggle}
                 ></div>
             </div>
-        </AppData.Provider >
+        </AppData.Provider>
     );
 }
 

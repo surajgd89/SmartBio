@@ -1,28 +1,14 @@
 import './header.css';
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { AppData } from '../../App'
+import { AppData } from '../../App';
 import ResumeFile from '../../Resume.pdf';
 import ProfilePicture from '../../components/profile-picture/ProfilePicture';
 import Intro from '../../components/intro/Intro';
 
 function Header() {
     const { ApplicationData } = useContext(AppData);
-    const Header = useRef();
-    const [Height, setHeight] = useState(ApplicationData.header.height);
-
-
-    useEffect(() => {
-        getHeight();
-        ApplicationData.header.getHeaderHeight(Height)
-    });
-
-    const getHeight = () => {
-        const currentHeight = Header.current.clientHeight;
-        setHeight(currentHeight);
-    };
-
     return (
-        <header className={ApplicationData.header.fixed ? 'header fixed' : 'header'} ref={Header}>
+        <header className={ApplicationData.header.fixed ? 'header fixed' : 'header'} >
             <div className='toggle' onClick={ApplicationData.sidebar.sidebarToggle}><i className='fal fa-bars'></i></div>
             <ProfilePicture />
             {ApplicationData.breakpoint.xl ? null : <Intro />}
