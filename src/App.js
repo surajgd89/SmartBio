@@ -31,8 +31,9 @@ function App() {
     const [SM, setSM] = useState(false);
     const [SidebarActive, setSidebarActive] = useState(false);
     const [HeaderFixed, setHeaderFixed] = useState(false);
-    const ContentDiv = useRef();
+    const ContentDiv = useRef('null');
     const [ContentOffsetTop, setContentOffsetTop] = useState(null);
+    const [ContentPadding, setContentPadding] = useState(null);
 
     const getDimensions = () => {
         setWindowWidth(window.innerWidth);
@@ -51,9 +52,9 @@ function App() {
         setContentOffsetTop(ContentDiv.current.offsetTop);
     };
 
-    const goToTop = () => {
-        scroll.scrollToTop();
-    };
+    // const goToTop = () => {
+    //     scroll.scrollToTop();
+    // };
 
     function Sidebar(props) {
         const XL = props.breakpoint;
@@ -104,6 +105,18 @@ function App() {
         }
     }
 
+
+    const getPadding = () => {
+        const content = ContentDiv.current;
+        const padding = window.getComputedStyle(content).getPropertyValue("padding-top");
+        console.log(window.getComputedStyle(content));
+        setContentPadding(padding)
+    }
+
+    useEffect(() => {
+
+    }, []);
+
     useEffect(() => {
         window.addEventListener('resize', getDimensions);
         window.addEventListener('scroll', () => {
@@ -111,6 +124,9 @@ function App() {
         });
         getDimensions();
         getOffsetTop();
+        getPadding();
+
+
 
         //goToTop();
     });
@@ -122,6 +138,7 @@ function App() {
         },
         content: {
             offsetTop: ContentOffsetTop,
+            padding: ContentPadding,
         },
         breakpoint: {
             xl: XL,
@@ -159,6 +176,8 @@ function App() {
                         </div>
                         <Declare />
                         <Footer />
+
+
                     </div>
                 </div>
                 <div
