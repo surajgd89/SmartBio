@@ -69,4 +69,8 @@
 .declare .action-sec .download-btn i {
   margin-right: 10px;
 }
+
+.declare .action-sec .download-btn:hover {
+  color: var(--secondary);
+}
 /*# sourceMappingURL=declare.css.map */

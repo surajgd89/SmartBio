@@ -1,10 +1,23 @@
 import './about-me.css';
+import React, { useContext } from 'react';
+import { AppData } from '../../App';
 function AboutMe() {
+    const { UserData } = useContext(AppData);
     return (
         <section className='about-me'>
             <h2 className='heading'>About Me</h2>
 
-            <ul className='list'>
+            {UserData.map((list, listkey) => (
+                <ul className='list' key={listkey}>
+                    {list.aboutMe.map((item, itemkey) => (
+                        <li className='item' key={itemkey}>{item}</li>
+                    ))}
+                </ul>
+            ))}
+
+
+
+            {/* <ul className='list'>
                 <li className='item'>A quick learner who's eager to learn
                     new skills</li>
                 <li className='item'>Can work effectively as part of a
@@ -19,7 +32,7 @@ function AboutMe() {
                     Multitasking</li>
                 <li className='item'>Love to take on challenges with an
                     open mind</li>
-            </ul>
+            </ul> */}
 
 
         </section>

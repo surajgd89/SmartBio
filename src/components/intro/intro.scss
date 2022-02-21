@@ -18,8 +18,24 @@
     }
     .designation {
         font-size: 24px;
+        line-height: 28px;
+        width: 100%;
         font-weight: var(--fw-light);
         color: var(--primary-half);
+        margin-bottom: 8px;
+
+        .type {
+            &::after {
+                content: '|';
+                animation: cursor 2s infinite step-start;
+            }
+
+            @keyframes cursor {
+                50% {
+                    opacity: 0;
+                }
+            }
+        }
 
         @media (max-width: 575.98px) {
             font-size: 20px;

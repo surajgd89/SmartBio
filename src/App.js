@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect, createContext, useRef } from 'react';
-import { animateScroll as scroll } from 'react-scroll';
+import { RotatingSquare } from 'react-loader-spinner';
+import ScrollToTop from 'react-scroll-to-top';
 import useScrollBlock from './vendor/useScrollBlock/useScrollBlock';
 import ProfilePicture from './components/profile-picture/ProfilePicture';
 import AboutMe from './components/about-me/AboutMe';
@@ -22,6 +23,7 @@ import Footer from './components/footer/Footer';
 export const AppData = createContext();
 
 function App() {
+    const [Loader, setLoader] = useState(true);
     const [WindowWidth, setWindowWidth] = useState(window.innerWidth);
     const [WindowHeight, setWindowHeight] = useState(window.innerHeight);
     const [blockScroll, allowScroll] = useScrollBlock();
@@ -34,6 +36,7 @@ function App() {
     const ContentDiv = useRef('null');
     const [ContentOffsetTop, setContentOffsetTop] = useState(null);
     const [ContentPadding, setContentPadding] = useState(null);
+    const [UserData, setUserData] = useState([]);
 
     const getDimensions = () => {
         setWindowWidth(window.innerWidth);
@@ -52,13 +55,9 @@ function App() {
         setContentOffsetTop(ContentDiv.current.offsetTop);
     };
 
-    // const goToTop = () => {
-    //     scroll.scrollToTop();
-    // };
-
     function Sidebar(props) {
         const XL = props.breakpoint;
-        //console.log(XL);
+
         if (XL) {
             return <Navigation sidebarFlag={sidebarToggle} />;
         } else {
@@ -105,16 +104,32 @@ function App() {
         }
     }
 
-
     const getPadding = () => {
         const content = ContentDiv.current;
-        const padding = window.getComputedStyle(content).getPropertyValue("padding-top");
-        console.log(window.getComputedStyle(content));
-        setContentPadding(padding)
-    }
+        const padding = window
+            .getComputedStyle(content)
+            .getPropertyValue('padding-top');
+        setContentPadding(padding);
+    };
+
+    const getData = () => {
+        fetch('http://localhost:4000/users', {
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                setUserData(myJson);
+                // console.log(myJson.id);
+            });
+    };
 
     useEffect(() => {
-
+        getData();
     }, []);
 
     useEffect(() => {
@@ -126,7 +141,9 @@ function App() {
         getOffsetTop();
         getPadding();
 
-
+        setTimeout(() => {
+            setLoader(false);
+        }, 2000);
 
         //goToTop();
     });
@@ -159,7 +176,23 @@ function App() {
         },
     };
     return (
-        <AppData.Provider value={{ ApplicationData }}>
+        <AppData.Provider value={{ ApplicationData, UserData }}>
+            <RotatingSquare
+                ariaLabel="rotating-square"
+                visible={Loader}
+                height="70"
+                width="70"
+                wrapperClass="loader"
+                strokeWidth="5"
+            />
+            <ScrollToTop
+                height="20"
+                width="20"
+                smooth={true}
+                component=""
+                className="scroll-to-top"
+            />
+
             <div className="main-container">
                 <div className="container">
                     <div className={SidebarActive ? 'sidebar open' : 'sidebar'}>
@@ -176,8 +209,6 @@ function App() {
                         </div>
                         <Declare />
                         <Footer />
-
-
                     </div>
                 </div>
                 <div

@@ -1,7 +1,7 @@
 import './navigation.css';
 import React, { useContext } from 'react';
-import { Link } from 'react-scroll';
 import { AppData } from '../../App';
+import { Link } from 'react-scroll';
 function Navigation(props) {
     const { ApplicationData } = useContext(AppData);
     const offsetTop = ApplicationData.content.offsetTop;

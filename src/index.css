@@ -24,6 +24,19 @@ html {
           box-sizing: border-box;
 }
 
+html::-webkit-scrollbar-track {
+  background-color: var(--primary-light);
+}
+
+html::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--primary-light);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
 *,
 *::before,
 *::after {
