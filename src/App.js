@@ -1,4 +1,7 @@
 import './App.css';
+import { useSelector, useDispatch } from "react-redux";
+import { requestUsers } from "./action";
+import data from "./data.json"
 import React, { useState, useEffect, createContext, useRef } from 'react';
 import { RotatingSquare } from 'react-loader-spinner';
 import ScrollToTop from 'react-scroll-to-top';
@@ -23,7 +26,8 @@ import Footer from './components/footer/Footer';
 export const AppData = createContext();
 
 function App() {
-    const [Loader, setLoader] = useState(true);
+    const { usersData, isLoading } = useSelector((state) => state);
+    const dispatch = useDispatch();
     const [WindowWidth, setWindowWidth] = useState(window.innerWidth);
     const [WindowHeight, setWindowHeight] = useState(window.innerHeight);
     const [blockScroll, allowScroll] = useScrollBlock();
@@ -36,8 +40,6 @@ function App() {
     const ContentDiv = useRef('null');
     const [ContentOffsetTop, setContentOffsetTop] = useState(null);
     const [ContentPadding, setContentPadding] = useState(null);
-    const [UserData, setUserData] = useState([]);
-
     const getDimensions = () => {
         setWindowWidth(window.innerWidth);
         setWindowHeight(window.innerHeight);
@@ -112,24 +114,8 @@ function App() {
         setContentPadding(padding);
     };
 
-    const getData = () => {
-        fetch('http://localhost:4000/users', {
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-        })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                setUserData(myJson);
-                // console.log(myJson.id);
-            });
-    };
-
     useEffect(() => {
-        getData();
+        dispatch(requestUsers(data));
     }, []);
 
     useEffect(() => {
@@ -141,14 +127,11 @@ function App() {
         getOffsetTop();
         getPadding();
 
-        setTimeout(() => {
-            setLoader(false);
-        }, 2000);
-
-        //goToTop();
     });
 
     const ApplicationData = {
+        user: usersData,
+        loading: isLoading,
         sidebar: {
             active: SidebarActive,
             sidebarToggle: sidebarToggle,
@@ -175,16 +158,19 @@ function App() {
             fixed: HeaderFixed,
         },
     };
+
     return (
-        <AppData.Provider value={{ ApplicationData, UserData }}>
+        <AppData.Provider value={{ ApplicationData }}>
+
             <RotatingSquare
                 ariaLabel="rotating-square"
-                visible={Loader}
+                visible={ApplicationData.loading}
                 height="70"
                 width="70"
                 wrapperClass="loader"
                 strokeWidth="5"
             />
+
             <ScrollToTop
                 height="20"
                 width="20"
