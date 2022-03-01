@@ -1,7 +1,4 @@
 import './App.css';
-import { useSelector, useDispatch } from "react-redux";
-import { requestUsers } from "./action";
-import data from "./data.json"
 import React, { useState, useEffect, createContext, useRef } from 'react';
 import { RotatingSquare } from 'react-loader-spinner';
 import ScrollToTop from 'react-scroll-to-top';
@@ -26,8 +23,7 @@ import Footer from './components/footer/Footer';
 export const AppData = createContext();
 
 function App() {
-    const { usersData, isLoading } = useSelector((state) => state);
-    const dispatch = useDispatch();
+    const [Loading, setLoading] = useState(true);
     const [WindowWidth, setWindowWidth] = useState(window.innerWidth);
     const [WindowHeight, setWindowHeight] = useState(window.innerHeight);
     const [blockScroll, allowScroll] = useScrollBlock();
@@ -115,10 +111,6 @@ function App() {
     };
 
     useEffect(() => {
-        dispatch(requestUsers(data));
-    }, []);
-
-    useEffect(() => {
         window.addEventListener('resize', getDimensions);
         window.addEventListener('scroll', () => {
             setHeaderFixed(window.scrollY > 80);
@@ -126,12 +118,11 @@ function App() {
         getDimensions();
         getOffsetTop();
         getPadding();
-
+        setLoading(false);
     });
 
     const ApplicationData = {
-        user: usersData,
-        loading: isLoading,
+        loading: Loading,
         sidebar: {
             active: SidebarActive,
             sidebarToggle: sidebarToggle,
