@@ -1,13 +1,6 @@
 import './about-me.css';
-import data from '../../data/data.json';
-import React, { useState, useEffect } from 'react';
-function AboutMe() {
-    const [UserData, setUserData] = useState(data);
 
-    useEffect(() => {
-        setUserData(data);
-        console.log(UserData.id);
-    }, [UserData]);
+function AboutMe() {
 
     return (
         <section className='about-me'>

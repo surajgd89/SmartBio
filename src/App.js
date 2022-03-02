@@ -1,25 +1,14 @@
 import './App.css';
-import React, { useState, useEffect, createContext, useRef } from 'react';
+import { Routes, Route } from "react-router-dom";
+import React, { useState, useEffect, createContext } from 'react';
 import { RotatingSquare } from 'react-loader-spinner';
 import ScrollToTop from 'react-scroll-to-top';
 import useScrollBlock from './vendor/useScrollBlock/useScrollBlock';
-import ProfilePicture from './components/profile-picture/ProfilePicture';
-import AboutMe from './components/about-me/AboutMe';
-import PersonalInfo from './components/personal-info/PersonalInfo';
-import Awards from './components/awards/Awards';
-import FollowMe from './components/follow-me/FollowMe';
-import References from './components/references/References';
-import Navigation from './components/navigation/Navigation';
-import Header from './components/header/Header';
-import Intro from './components/intro/Intro';
-import CareerOverview from './components/career-overview/CareerOverview';
-import Experience from './components/experience/Experience';
-import Education from './components/education/Education';
-import Skills from './components/skills/Skills';
-import KeyResponsiblities from './components/key-responsiblities/KeyResponsiblities';
-import Projects from './components/projects/Projects';
-import Declare from './components/declare/Declare';
-import Footer from './components/footer/Footer';
+import Home from './Home';
+import SmartBio from './SmartBio';
+import CreateSmartBio from './CreateSmartBio';
+import DeleteSmartBio from './DeleteSmartBio';
+import PageNotFound from './PageNotFound';
 export const AppData = createContext();
 
 function App() {
@@ -33,9 +22,7 @@ function App() {
     const [SM, setSM] = useState(false);
     const [SidebarActive, setSidebarActive] = useState(false);
     const [HeaderFixed, setHeaderFixed] = useState(false);
-    const ContentDiv = useRef('null');
-    const [ContentOffsetTop, setContentOffsetTop] = useState(null);
-    const [ContentPadding, setContentPadding] = useState(null);
+
     const getDimensions = () => {
         setWindowWidth(window.innerWidth);
         setWindowHeight(window.innerHeight);
@@ -45,91 +32,11 @@ function App() {
         WindowWidth < 576 ? setSM(true) : setSM(false);
     };
 
-    function sidebarToggle() {
-        setSidebarActive(!SidebarActive);
-    }
-
-    const getOffsetTop = () => {
-        setContentOffsetTop(ContentDiv.current.offsetTop);
-    };
-
-    function Sidebar(props) {
-        const XL = props.breakpoint;
-
-        if (XL) {
-            return <Navigation sidebarFlag={sidebarToggle} />;
-        } else {
-            return (
-                <>
-                    <ProfilePicture />
-                    <AboutMe />
-                    <PersonalInfo />
-                    <Awards />
-                    <FollowMe />
-                    <References />
-                </>
-            );
-        }
-    }
-
-    function Content(props) {
-        const XL = props.breakpoint;
-        if (XL) {
-            return (
-                <>
-                    <AboutMe name="about-me" />
-                    <Experience name="experience" />
-                    <Skills name="skills" />
-                    <KeyResponsiblities name="key-responsiblities" />
-                    <Projects name="projects" />
-                    <Awards name="awards" />
-                    <Education name="education" />
-                    <PersonalInfo name="personal-info" />
-                    <References name="references" />
-                    <FollowMe name="follow-Me" />
-                </>
-            );
-        } else {
-            return (
-                <>
-                    <Experience />
-                    <Education />
-                    <Skills />
-                    <KeyResponsiblities />
-                    <Projects />
-                </>
-            );
-        }
-    }
-
-    const getPadding = () => {
-        const content = ContentDiv.current;
-        const padding = window
-            .getComputedStyle(content)
-            .getPropertyValue('padding-top');
-        setContentPadding(padding);
-    };
-
-    useEffect(() => {
-        window.addEventListener('resize', getDimensions);
-        window.addEventListener('scroll', () => {
-            setHeaderFixed(window.scrollY > 80);
-        });
-        getDimensions();
-        getOffsetTop();
-        getPadding();
-        setLoading(false);
-    });
-
     const ApplicationData = {
         loading: Loading,
         sidebar: {
             active: SidebarActive,
             sidebarToggle: sidebarToggle,
-        },
-        content: {
-            offsetTop: ContentOffsetTop,
-            padding: ContentPadding,
         },
         breakpoint: {
             xl: XL,
@@ -149,6 +56,21 @@ function App() {
             fixed: HeaderFixed,
         },
     };
+
+    function sidebarToggle() {
+        setSidebarActive(!SidebarActive);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', getDimensions);
+        window.addEventListener('scroll', () => {
+            setHeaderFixed(window.scrollY > 80);
+        });
+        getDimensions();
+        setLoading(false);
+    });
+
+
 
     return (
         <AppData.Provider value={{ ApplicationData }}>
@@ -170,29 +92,14 @@ function App() {
                 className="scroll-to-top"
             />
 
-            <div className="main-container">
-                <div className="container">
-                    <div className={SidebarActive ? 'sidebar open' : 'sidebar'}>
-                        {SidebarActive ? blockScroll() : allowScroll()}
-                        <Sidebar breakpoint={XL} />
-                    </div>
-                    <div className="wrapper">
-                        {XL ? <Header /> : null}
-                        <div className="content" ref={ContentDiv}>
-                            {XL ? null : <Intro />}
-                            {SM ? <Intro /> : null}
-                            <CareerOverview name="career-overview" />
-                            <Content breakpoint={XL} />
-                        </div>
-                        <Declare />
-                        <Footer />
-                    </div>
-                </div>
-                <div
-                    className={SidebarActive ? 'overlay active' : 'overlay'}
-                    onClick={sidebarToggle}
-                ></div>
-            </div>
+            <Routes>
+                <Route exact={true} path="/" element={<Home />} />
+                <Route path="/create" element={<CreateSmartBio />} />
+                <Route path="/delete" element={<DeleteSmartBio />} />
+                <Route path="/surajpatil" element={<SmartBio />} />
+                <Route path="*" element={<PageNotFound />} />
+            </Routes>
+
         </AppData.Provider>
     );
 }

@@ -11,6 +11,9 @@ function Navigation(props) {
         ApplicationData.sidebar.sidebarToggle();
     }
 
+    console.log(offsetTop);
+    console.log(ContentPadding);
+
     return (
         <nav className="navigation" >
             <div className="action">
