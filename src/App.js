@@ -9,6 +9,7 @@ import SmartBio from './SmartBio';
 import CreateSmartBio from './CreateSmartBio';
 import DeleteSmartBio from './DeleteSmartBio';
 import PageNotFound from './PageNotFound';
+import UserData from './data.json';
 export const AppData = createContext();
 
 function App() {
@@ -73,7 +74,7 @@ function App() {
 
 
     return (
-        <AppData.Provider value={{ ApplicationData }}>
+        <AppData.Provider value={{ ApplicationData, UserData }}>
 
             <RotatingSquare
                 ariaLabel="rotating-square"

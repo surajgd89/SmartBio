@@ -1,6 +1,15 @@
 import './about-me.css';
+import React, { useContext, useEffect } from 'react';
+import { AppData } from '../../App';
 
 function AboutMe() {
+    const { UserData } = useContext(AppData);
+
+    useEffect(() => {
+        console.log(UserData.SurajPatil);
+    }, [])
+
+
 
     return (
         <section className='about-me'>

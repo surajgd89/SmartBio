@@ -8,5 +8,5 @@ function Home() {
             <Link to="/delete">Delete Your SmartBio</Link>
         </h1>
     )
-}
+}   
 export default Home;

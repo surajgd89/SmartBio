@@ -19,9 +19,10 @@ import Footer from './components/footer/Footer';
 import { AppData } from './App';
 
 
+
 function SmartBio() {
     const ContentDiv = useRef('null');
-    const { ApplicationData } = useContext(AppData);
+    const { ApplicationData, UserData } = useContext(AppData);
     const [ContentOffsetTop, setContentOffsetTop] = useState(null);
     const [ContentPadding, setContentPadding] = useState(null);
 
@@ -95,27 +96,7 @@ function SmartBio() {
         }
     }
 
-    const getData = () => {
-        fetch('./data.json'
-            , {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }
-        )
-            .then(function (response) {
-                console.log(response)
-                return response.json();
-            })
-            .then(function (result) {
-                console.log("Result :" + result);
-            });
-    }
 
-    useEffect(() => {
-        getData()
-    }, [])
 
     useEffect(() => {
         getOffsetTop();
