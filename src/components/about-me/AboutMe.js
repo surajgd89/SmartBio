@@ -6,7 +6,7 @@ function AboutMe() {
     const { UserData } = useContext(AppData);
 
     useEffect(() => {
-        console.log(UserData.SurajPatil);
+        //console.log(UserData.SurajPatil);
     }, [])
 
 

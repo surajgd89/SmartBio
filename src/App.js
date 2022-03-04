@@ -24,6 +24,8 @@ function App() {
     const [SidebarActive, setSidebarActive] = useState(false);
     const [HeaderFixed, setHeaderFixed] = useState(false);
 
+
+
     const getDimensions = () => {
         setWindowWidth(window.innerWidth);
         setWindowHeight(window.innerHeight);
@@ -62,6 +64,8 @@ function App() {
         setSidebarActive(!SidebarActive);
     }
 
+
+
     useEffect(() => {
         window.addEventListener('resize', getDimensions);
         window.addEventListener('scroll', () => {
@@ -69,11 +73,20 @@ function App() {
         });
         getDimensions();
         setLoading(false);
+
+
     });
+
+    // console.log(UserData);
+
+
+
+
 
 
 
     return (
+
         <AppData.Provider value={{ ApplicationData, UserData }}>
 
             <RotatingSquare
@@ -94,13 +107,13 @@ function App() {
             />
 
             <Routes>
-                <Route exact={true} path="/" element={<Home />} />
-                <Route path="/create" element={<CreateSmartBio />} />
-                <Route path="/delete" element={<DeleteSmartBio />} />
-                <Route path="/surajpatil" element={<SmartBio />} />
-                <Route path="*" element={<PageNotFound />} />
+                <Route path="/" element={<Home />} />
+                <Route path="SmartBio" element={<Home />} />
+                <Route path="create" element={<CreateSmartBio />} />
+                <Route path="delete" element={<DeleteSmartBio />} />
+                <Route path={"SmartBio/:passkey"} element={<SmartBio />} />
+                <Route path="SmartBio/*" element={<PageNotFound />} />
             </Routes>
-
         </AppData.Provider>
     );
 }
