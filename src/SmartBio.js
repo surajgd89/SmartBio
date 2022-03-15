@@ -56,11 +56,11 @@ function SmartBio() {
             return (
                 <>
                     <ProfilePicture />
-                    {(UserData.awards != null) ? <AboutMe /> : null}
+                    <AboutMe />
                     <PersonalInfo />
-                    <Awards />
-                    <FollowMe />
-                    <References />
+                    {(UserData.awards != null) ? <Awards /> : null}
+                    {(UserData.followMe != null) ? <FollowMe /> : null}
+                    {(UserData.references != null) ? <References /> : null}
                 </>
             );
         }
@@ -76,11 +76,11 @@ function SmartBio() {
                     <Skills name="skills" />
                     <KeyResponsiblities name="key-responsiblities" />
                     <Projects name="projects" />
-                    <Awards name="awards" />
+                    {(UserData.awards != null) ? <Awards name="awards" /> : null}
                     <Education name="education" />
                     <PersonalInfo name="personal-info" />
-                    <References name="references" />
-                    <FollowMe name="follow-Me" />
+                    {(UserData.references != null) ? <References name="references" /> : null}
+                    {(UserData.followMe != null) ? <FollowMe name="follow-Me" /> : null}
                 </>
             );
         } else {

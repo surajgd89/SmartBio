@@ -3,15 +3,18 @@ import './declare.css';
 import ResumeFile from '../../Resume.pdf';
 import { AppData } from '../../App';
 function Declare() {
-    const { ApplicationData } = useContext(AppData);
+    const { ApplicationData, UserData } = useContext(AppData);
+    const PersonalInfo = UserData.personalInfo;
+    const declare = UserData.declare;
+    const fullName = `${PersonalInfo.name.first} ${PersonalInfo.name.middle} ${PersonalInfo.name.last}`;
 
     return (
         <section className='declare'>
             <div className='description'>
-                I announce that the information and details shared in this resume are correct and inclusive. I take full liability for the correctness of the information.
+                {declare}
             </div>
             <h3 className='name'>
-                Suraj Ananda Patil
+                {fullName}
             </h3>
             {ApplicationData.breakpoint.xl ? null : <div className='action-sec'><a href={ResumeFile} className='download-btn' download={true}>
                 <i className='fal fa-arrow-to-bottom'></i>

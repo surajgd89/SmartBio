@@ -1,15 +1,19 @@
 import './key-responsiblities.css';
+import React, { useContext } from 'react';
+import { AppData } from '../../App';
 function KeyResponsiblities() {
+    const { UserData } = useContext(AppData);
+    const keyResponsiblities = UserData.keyResponsiblities;
     return (
         <section className='key-responsiblities'>
             <h2 className='heading'>Key Responsiblities</h2>
             <ul className='list'>
-                <li className='item'>Client side development with convert design to HTML / CSS /Javascript /
-                    Jquery / Bootstrap / React</li>
-                <li className='item'>Ensure browser compatibility</li>
-                <li className='item'>Responsive / Non - Responsive / PWA</li>
-                <li className='item'>Work in multidisciplinary team with other professionals such as back-end
-                    developers and web designers</li>
+                {
+                    keyResponsiblities.map((item, index) => {
+                        return <li className='item' key={index}>{item}</li>;
+                    })
+                }
+
             </ul>
         </section>
     );

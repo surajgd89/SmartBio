@@ -5,7 +5,7 @@ function Footer() {
 
     return (
         <footer className='footer' >
-            &copy; {currentYear}, Designed &amp; Developed by <strong>Suraj Patil</strong>. All rights reserved.
+            &copy; {currentYear}, Designed &amp; Developed by <strong>SmartBio</strong>. All rights reserved.
         </footer>
     );
 }

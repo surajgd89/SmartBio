@@ -9,7 +9,7 @@ function Awards() {
     return (
         <section className='awards'>
             <h2 className='heading'>Awards</h2>
-            {/* <div className='data-list'>
+            <div className='data-list'>
                 {
                     Awards.map((item, index) => {
                         return (
@@ -20,7 +20,7 @@ function Awards() {
                         );
                     })
                 }
-            </div> */}
+            </div>
         </section>
     );
 }
