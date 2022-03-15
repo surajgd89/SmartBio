@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
-import { useParams } from "react-router-dom";
 import Header from './components/header/Header';
 import Intro from './components/intro/Intro';
 import CareerOverview from './components/career-overview/CareerOverview';
@@ -27,14 +26,12 @@ function SmartBio() {
     const [ContentOffsetTop, setContentOffsetTop] = useState(null);
     const [ContentPadding, setContentPadding] = useState(null);
 
-
     const ContentObj = {
         offsetTop: ContentOffsetTop,
         padding: ContentPadding,
     }
 
     ApplicationData.content = ContentObj;
-
 
     const getOffsetTop = () => {
         setContentOffsetTop(ContentDiv.current.offsetTop);
@@ -48,8 +45,10 @@ function SmartBio() {
         setContentPadding(padding);
     };
 
-    function Sidebar() {
 
+
+
+    function Sidebar() {
 
         if (ApplicationData.breakpoint.xl) {
             return <Navigation sidebarFlag={ApplicationData.sidebar.sidebarToggle} />;
@@ -57,7 +56,7 @@ function SmartBio() {
             return (
                 <>
                     <ProfilePicture />
-                    <AboutMe />
+                    {(UserData.awards != null) ? <AboutMe /> : null}
                     <PersonalInfo />
                     <Awards />
                     <FollowMe />
@@ -97,30 +96,11 @@ function SmartBio() {
         }
     }
 
-
     useEffect(() => {
         getOffsetTop();
         getPadding();
     });
 
-    const { passkey } = useParams();
-
-    console.log(passkey);
-
-    console.log(UserData.passkey);
-
-    let newArr = {};
-    UserData.filter((user, index) => {
-        if (passkey == user.passkey) {
-            // console.log(user);
-            return
-        }
-    })
-
-
-    console.log(newArr)
-
-    // console.log(passkey);
 
     return (
         <div className="main-container">

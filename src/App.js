@@ -1,14 +1,9 @@
 import './App.css';
-import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect, createContext } from 'react';
 import { RotatingSquare } from 'react-loader-spinner';
 import ScrollToTop from 'react-scroll-to-top';
 import useScrollBlock from './vendor/useScrollBlock/useScrollBlock';
-import Home from './Home';
 import SmartBio from './SmartBio';
-import CreateSmartBio from './CreateSmartBio';
-import DeleteSmartBio from './DeleteSmartBio';
-import PageNotFound from './PageNotFound';
 import UserData from './data.json';
 export const AppData = createContext();
 
@@ -23,8 +18,6 @@ function App() {
     const [SM, setSM] = useState(false);
     const [SidebarActive, setSidebarActive] = useState(false);
     const [HeaderFixed, setHeaderFixed] = useState(false);
-
-
 
     const getDimensions = () => {
         setWindowWidth(window.innerWidth);
@@ -64,23 +57,16 @@ function App() {
         setSidebarActive(!SidebarActive);
     }
 
-
-
     useEffect(() => {
         window.addEventListener('resize', getDimensions);
         window.addEventListener('scroll', () => {
             setHeaderFixed(window.scrollY > 80);
         });
         getDimensions();
-        setLoading(false);
-
-
+        setTimeout(() => {
+            setLoading(false);
+        }, 2500);
     });
-
-    // console.log(UserData);
-
-
-
 
 
 
@@ -106,16 +92,9 @@ function App() {
                 className="scroll-to-top"
             />
 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="SmartBio" element={<Home />} />
-                <Route path="create" element={<CreateSmartBio />} />
-                <Route path="delete" element={<DeleteSmartBio />} />
-                <Route path={"SmartBio/:passkey"} element={<SmartBio />} />
-                <Route path="SmartBio/*" element={<PageNotFound />} />
-            </Routes>
+            <SmartBio />
+
         </AppData.Provider>
     );
 }
-
 export default App;
