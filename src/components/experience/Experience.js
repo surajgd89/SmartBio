@@ -4,13 +4,13 @@ import { AppData } from '../../App';
 function Experience() {
     const { UserData } = useContext(AppData);
     const experience = UserData.experience;
-    function countExp(fromDate, toDate) {
+
+    function calcExp(fromDate, toDate) {
         let exp;
         let current = new Date();
         let from = new Date(fromDate);
         let to = new Date(toDate);
         const monthInmiliseconds = 2590000000;
-
         if (toDate == "Present") {
             let difference = new Date(current - from).getTime();
             let months = Math.floor(difference / monthInmiliseconds);
@@ -18,15 +18,13 @@ function Experience() {
             let num = Math.round(yr * 10) / 10;
             let in_years = num.toString().split('.')[0];
             let in_months = num.toString().split('.')[1];
-
-            if (in_years === '0') {
-                exp = `${in_years} years`
-            } else if (in_months === '0') {
-                exp = `${in_months} months`
+            if (parseInt(in_years) > 0 && parseInt(in_months) > 0) {
+                exp = `${parseInt(in_years)} year, ${parseInt(in_months)} months`
+            } else if (parseInt(in_years) > 0 || parseInt(in_months) < 1) {
+                exp = `${parseInt(in_years)} year`
             } else {
-                exp = `${in_years} year, ${in_months} months`
+                exp = `${parseInt(in_months)} months`
             }
-
         } else {
             let difference = new Date(to - from).getTime();
             let months = Math.floor(difference / monthInmiliseconds);
@@ -34,12 +32,12 @@ function Experience() {
             let num = Math.round(yr * 10) / 10;
             let in_years = num.toString().split('.')[0];
             let in_months = num.toString().split('.')[1];
-            if (in_years === '0') {
-                exp = `${in_years} years`
-            } else if (in_months === '0') {
-                exp = `${in_months} months`
+            if (parseInt(in_years) > 0 && parseInt(in_months) > 0) {
+                exp = `${parseInt(in_years)} year, ${parseInt(in_months)} months`
+            } else if (parseInt(in_years) > 0 || parseInt(in_months) < 1) {
+                exp = `${parseInt(in_years)} year`
             } else {
-                exp = `${in_years} year, ${in_months} months`
+                exp = `${parseInt(in_months)} months`
             }
         }
         return exp;
@@ -55,7 +53,7 @@ function Experience() {
                             <div className='item' key={index}>
                                 <div className='col-one'>
                                     <h3>{new Date(item.fromDate).getFullYear()} - {item.toDate != "Present" ? new Date(item.toDate).getFullYear() : "Present"}</h3>
-                                    <div>{countExp(item.fromDate, item.toDate)}</div>
+                                    <div>{calcExp(item.fromDate, item.toDate)}</div>
                                 </div>
                                 <div className='col-two'>
                                     <h3>{item.companyName}</h3>
