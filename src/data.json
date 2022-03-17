@@ -8,9 +8,9 @@
             "middle": "Ananda",
             "last": "Patil"
         },
-        "profilePicture": "./src/images/profile-picture.jpg",
+        "profilePicture": "/images/profile-picture.jpg",
         "designation": [
-            "Front End Developer",
+            "Front End Web Developer",
             3000,
             "UI Developer",
             3000,
@@ -48,7 +48,7 @@
     "followMe": [
         {
             "name": "Linkedin",
-            "url": "linkedin.com/in/surajpatil89"
+            "url": "https://www.linkedin.com/in/surajpatil89/"
         }
     ],
 
@@ -73,7 +73,7 @@
         {
             "companyName": "Infibeam Avenues Ltd.",
             "designation": "Sr. UI Developer",
-            "fromDate": "2022,07,17",
+            "fromDate": "2017,07,17",
             "toDate": "Present"
         },
         {
@@ -120,19 +120,19 @@
                 "list": [
                     {
                         "name": "Adobe Photoshop",
-                        "logo": "./src/images/photoshop.png"
+                        "logo": "/images/photoshop.png"
                     },
                     {
                         "name": "Adobe Illustrator",
-                        "logo": "./src/images/illustrator.png"
+                        "logo": "/images/illustrator.png"
                     },
                     {
                         "name": "Adobe XD",
-                        "logo": "./src/images/xd.png"
+                        "logo": "/images/xd.png"
                     },
                     {
                         "name": "CorelDRAW",
-                        "logo": "./src/images/coreldraw.png"
+                        "logo": "/images/coreldraw.png"
                     }
                 ]
             },
@@ -141,39 +141,39 @@
                 "list": [
                     {
                         "name": "HTML5",
-                        "logo": "./src/images/html.png"
+                        "logo": "/images/html.png"
                     },
                     {
                         "name": "CSS3",
-                        "logo": "./src/images/css.png"
+                        "logo": "/images/css.png"
                     },
                     {
                         "name": "JavaScript",
-                        "logo": "./src/images/javascript.png"
+                        "logo": "/images/javascript.png"
                     },
                     {
                         "name": "JQuery",
-                        "logo": "./src/images/jquery.png"
+                        "logo": "/images/jquery.png"
                     },
                     {
                         "name": "Bootstrap",
-                        "logo": "./src/images/bootstrap.png"
+                        "logo": "/images/bootstrap.png"
                     },
                     {
                         "name": "SASS",
-                        "logo": "./src/images/sass.png"
+                        "logo": "/images/sass.png"
                     },
                     {
                         "name": "SVG",
-                        "logo": "./src/images/svg.png"
+                        "logo": "/images/svg.png"
                     },
                     {
                         "name": "React",
-                        "logo": "./src/images/react.png"
+                        "logo": "/images/react.png"
                     },
                     {
                         "name": "JSON",
-                        "logo": "./src/images/json.png"
+                        "logo": "/images/json.png"
                     }
                 ]
             },
@@ -182,19 +182,19 @@
                 "list": [
                     {
                         "name": "VS Code",
-                        "logo": "./src/images/vscode.png"
+                        "logo": "/images/vscode.png"
                     },
                     {
                         "name": "Git",
-                        "logo": "./src/images/git.png"
+                        "logo": "/images/git.png"
                     },
                     {
                         "name": "NodeJs",
-                        "logo": "./src/images/nodejs.png"
+                        "logo": "/images/nodejs.png"
                     },
                     {
                         "name": "npm",
-                        "logo": "./src/images/npm.png"
+                        "logo": "/images/npm.png"
                     }
                 ]
             }

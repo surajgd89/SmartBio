@@ -19,6 +19,7 @@
 
                     a {
                         color: #fff;
+                        word-break: break-all;
                         &:hover,
                         &:focus {
                             color: var(--secondary);
@@ -62,6 +63,7 @@
 
                     a {
                         color: var(--primary);
+                        word-break: break-all;
                         &:hover,
                         &:focus {
                             color: var(--secondary);
