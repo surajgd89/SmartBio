@@ -1,10 +1,10 @@
 import './references.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
+import { AppDataContext } from '../../AppDataProvider';
 function References() {
-    const { UserData } = useContext(AppData);
-    const references = UserData.references;
-    
+    const { UserDataJSON } = useContext(AppDataContext);
+    const references = UserDataJSON.references;
+
     return (
         <section className='references'>
             <h2 className='heading'>References</h2>

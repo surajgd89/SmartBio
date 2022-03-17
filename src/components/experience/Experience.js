@@ -1,9 +1,9 @@
 import './experience.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
+import { AppDataContext } from '../../AppDataProvider';
 function Experience() {
-    const { UserData } = useContext(AppData);
-    const experience = UserData.experience;
+    const { UserDataJSON } = useContext(AppDataContext);
+    const experience = UserDataJSON.experience;
 
     function calcExp(fromDate, toDate) {
         let exp;
@@ -42,6 +42,10 @@ function Experience() {
         }
         return exp;
     }
+
+    
+
+
 
     return (
         <section className='experience'>

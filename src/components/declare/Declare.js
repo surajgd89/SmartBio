@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
 import './declare.css';
 import ResumeFile from '../../Resume.pdf';
-import { AppData } from '../../App';
+import React, { useContext } from 'react';
+import { AppDataContext } from '../../AppDataProvider';
 function Declare() {
-    const { ApplicationData, UserData } = useContext(AppData);
-    const PersonalInfo = UserData.personalInfo;
-    const declare = UserData.declare;
+    const { ApplicationData, UserDataJSON } = useContext(AppDataContext);
+    const PersonalInfo = UserDataJSON.personalInfo;
+    const declare = UserDataJSON.declare;
     const fullName = `${PersonalInfo.name.first} ${PersonalInfo.name.middle} ${PersonalInfo.name.last}`;
 
     return (

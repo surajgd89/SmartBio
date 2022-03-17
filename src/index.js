@@ -4,11 +4,14 @@ import 'normalize.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppDataProvider from './AppDataProvider'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppDataProvider>
+      <App />
+    </AppDataProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

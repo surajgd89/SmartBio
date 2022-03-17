@@ -1,7 +1,6 @@
 {
     "id": 1,
     "passkey": "SurajPatil",
-
     "personalInfo": {
         "name": {
             "first": "Suraj",
@@ -17,7 +16,6 @@
             "MERN Developer",
             3000
         ],
-        "totalExperience": 96,
         "email": "suraj.gd89@gmail.com",
         "mobile": "+91 9594415153",
         "gender": "Male",

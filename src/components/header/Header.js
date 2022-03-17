@@ -1,12 +1,12 @@
 import './header.css';
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import { AppData } from '../../App';
+import React, { useContext } from 'react';
+import { AppDataContext } from '../../AppDataProvider';
 import ResumeFile from '../../Resume.pdf';
 import ProfilePicture from '../../components/profile-picture/ProfilePicture';
 import Intro from '../../components/intro/Intro';
 
 function Header() {
-    const { ApplicationData } = useContext(AppData);
+    const { ApplicationData } = useContext(AppDataContext);
     return (
         <header className={ApplicationData.header.fixed ? 'header fixed' : 'header'} >
             <div className='toggle' onClick={ApplicationData.sidebar.sidebarToggle}><i className='fal fa-bars'></i></div>

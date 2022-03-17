@@ -1,9 +1,9 @@
 import './awards.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
+import { AppDataContext } from '../../AppDataProvider';
 function Awards() {
-    const { UserData } = useContext(AppData);
-    const Awards = UserData.awards;
+    const { UserDataJSON } = useContext(AppDataContext);
+    const Awards = UserDataJSON.awards;
 
 
     return (

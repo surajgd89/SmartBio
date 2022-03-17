@@ -1,12 +1,10 @@
 import './profile-picture.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
-
-
+import { AppDataContext } from '../../AppDataProvider';
 
 function ProfilePicture() {
-    const { UserData } = useContext(AppData);
-    const PersonalInfo = UserData.personalInfo;
+    const { UserDataJSON } = useContext(AppDataContext);
+    const PersonalInfo = UserDataJSON.personalInfo;
 
     return (
         <section className='profile-picture'>

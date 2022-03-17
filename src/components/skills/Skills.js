@@ -1,11 +1,11 @@
 import './skills.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
+import { AppDataContext } from '../../AppDataProvider';
 
 function Skills() {
-    const { UserData } = useContext(AppData);
-    const skills = UserData.skills;
-    const parts = UserData.skills.parts;
+    const { UserDataJSON } = useContext(AppDataContext);
+    const skills = UserDataJSON.skills;
+    const parts = UserDataJSON.skills.parts;
     return (
         <section className="skills">
             <h2 className="heading">Skills</h2>

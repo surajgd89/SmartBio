@@ -1,9 +1,9 @@
 import './navigation.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
+import { AppDataContext } from '../../AppDataProvider';
 import { Link } from 'react-scroll';
 function Navigation(props) {
-    const { ApplicationData } = useContext(AppData);
+    const { ApplicationData } = useContext(AppDataContext);
     const offsetTop = ApplicationData.content.offsetTop;
     const ContentPadding = parseInt(ApplicationData.content.padding);
 

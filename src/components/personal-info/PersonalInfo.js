@@ -1,10 +1,9 @@
 import './personal-info.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
+import { AppDataContext } from '../../AppDataProvider';
 function PersonalInfo() {
-    const { UserData } = useContext(AppData);
-    const PersonalInfo = UserData.personalInfo;
-    
+    const { UserDataJSON } = useContext(AppDataContext);
+    const PersonalInfo = UserDataJSON.personalInfo;
     const fullName = `${PersonalInfo.name.first} ${PersonalInfo.name.middle} ${PersonalInfo.name.last}`;
     const email = PersonalInfo.email;
     const mobile = PersonalInfo.mobile;

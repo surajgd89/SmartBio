@@ -1,9 +1,9 @@
 import './key-responsiblities.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
+import { AppDataContext } from '../../AppDataProvider';
 function KeyResponsiblities() {
-    const { UserData } = useContext(AppData);
-    const keyResponsiblities = UserData.keyResponsiblities;
+    const { UserDataJSON } = useContext(AppDataContext);
+    const keyResponsiblities = UserDataJSON.keyResponsiblities;
     return (
         <section className='key-responsiblities'>
             <h2 className='heading'>Key Responsiblities</h2>

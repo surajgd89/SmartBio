@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
+import { AppDataContext } from './AppDataProvider';
 import Header from './components/header/Header';
 import Intro from './components/intro/Intro';
 import CareerOverview from './components/career-overview/CareerOverview';
@@ -16,13 +17,13 @@ import KeyResponsiblities from './components/key-responsiblities/KeyResponsiblit
 import Projects from './components/projects/Projects';
 import Declare from './components/declare/Declare';
 import Footer from './components/footer/Footer';
-import { AppData } from './App';
+
 
 
 
 function SmartBio() {
+    const { ApplicationData, UserDataJSON } = useContext(AppDataContext);
     const ContentDiv = useRef('null');
-    const { ApplicationData, UserData } = useContext(AppData);
     const [ContentOffsetTop, setContentOffsetTop] = useState(null);
     const [ContentPadding, setContentPadding] = useState(null);
 
@@ -45,9 +46,6 @@ function SmartBio() {
         setContentPadding(padding);
     };
 
-
-
-
     function Sidebar() {
 
         if (ApplicationData.breakpoint.xl) {
@@ -58,9 +56,9 @@ function SmartBio() {
                     <ProfilePicture />
                     <AboutMe />
                     <PersonalInfo />
-                    {(UserData.awards != null) ? <Awards /> : null}
-                    {(UserData.followMe != null) ? <FollowMe /> : null}
-                    {(UserData.references != null) ? <References /> : null}
+                    {(UserDataJSON.awards != null) ? <Awards /> : null}
+                    {(UserDataJSON.followMe != null) ? <FollowMe /> : null}
+                    {(UserDataJSON.references != null) ? <References /> : null}
                 </>
             );
         }
@@ -76,11 +74,11 @@ function SmartBio() {
                     <Skills name="skills" />
                     <KeyResponsiblities name="key-responsiblities" />
                     <Projects name="projects" />
-                    {(UserData.awards != null) ? <Awards name="awards" /> : null}
+                    {(UserDataJSON.awards != null) ? <Awards name="awards" /> : null}
                     <Education name="education" />
                     <PersonalInfo name="personal-info" />
-                    {(UserData.references != null) ? <References name="references" /> : null}
-                    {(UserData.followMe != null) ? <FollowMe name="follow-Me" /> : null}
+                    {(UserDataJSON.references != null) ? <References name="references" /> : null}
+                    {(UserDataJSON.followMe != null) ? <FollowMe name="follow-Me" /> : null}
                 </>
             );
         } else {

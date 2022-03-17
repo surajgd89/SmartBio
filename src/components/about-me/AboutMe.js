@@ -1,10 +1,10 @@
 import './about-me.css';
 import React, { useContext } from 'react';
-import { AppData } from '../../App';
+import { AppDataContext } from '../../AppDataProvider';
 
 function AboutMe() {
-    const { UserData } = useContext(AppData);
-    const AboutList = UserData.aboutMe;
+    const { UserDataJSON } = useContext(AppDataContext);
+    const AboutList = UserDataJSON.aboutMe;
 
     return (
         <section className='about-me'>
