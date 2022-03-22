@@ -20,16 +20,28 @@
                 }
 
                 .sublist {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+
                     .subitem {
                         font-size: 14px;
+                        position: relative;
+                        padding-left: 20px;
+
+                        &::before {
+                            content: '\f0c1';
+                            font-family: 'Font Awesome 5 Pro';
+                            position: absolute;
+                            top: 2px;
+                            left: 0;
+                            font-size: 12px;
+                            color: var(--primary-half);
+                        }
 
                         a {
                             color: var(--link);
                             word-wrap: break-word;
-                        }
-
-                        &::marker {
-                            color: var(--primary-half);
                         }
                     }
                 }

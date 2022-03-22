@@ -17,16 +17,30 @@
   margin-bottom: 0;
 }
 
+.content .certifications .list .item .sublist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .content .certifications .list .item .sublist .subitem {
   font-size: 14px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.content .certifications .list .item .sublist .subitem::before {
+  content: '\f0c1';
+  font-family: 'Font Awesome 5 Pro';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  font-size: 12px;
+  color: var(--primary-half);
 }
 
 .content .certifications .list .item .sublist .subitem a {
   color: var(--link);
   word-wrap: break-word;
-}
-
-.content .certifications .list .item .sublist .subitem::marker {
-  color: var(--primary-half);
 }
 /*# sourceMappingURL=certifications.css.map */
