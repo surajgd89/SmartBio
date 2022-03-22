@@ -13,6 +13,7 @@ import Navigation from './components/navigation/Navigation';
 import Experience from './components/experience/Experience';
 import Education from './components/education/Education';
 import Skills from './components/skills/Skills';
+import Certifications from './components/certifications/Certifications';
 import KeyResponsiblities from './components/key-responsiblities/KeyResponsiblities';
 import Projects from './components/projects/Projects';
 import Declare from './components/declare/Declare';
@@ -72,13 +73,14 @@ function SmartBio() {
                     <AboutMe name="about-me" />
                     <Experience name="experience" />
                     <Skills name="skills" />
+                    {(UserDataJSON.Certifications !== null) ? <Certifications name="certifications" /> : null}
                     <KeyResponsiblities name="key-responsiblities" />
                     <Projects name="projects" />
-                    {(UserDataJSON.awards != null) ? <Awards name="awards" /> : null}
+                    {(UserDataJSON.awards !== null) ? <Awards name="awards" /> : null}
                     <Education name="education" />
                     <PersonalInfo name="personal-info" />
-                    {(UserDataJSON.references != null) ? <References name="references" /> : null}
-                    {(UserDataJSON.followMe != null) ? <FollowMe name="follow-Me" /> : null}
+                    {(UserDataJSON.references !== null) ? <References name="references" /> : null}
+                    {(UserDataJSON.followMe !== null) ? <FollowMe name="follow-Me" /> : null}
                 </>
             );
         } else {
@@ -87,6 +89,7 @@ function SmartBio() {
                     <Experience />
                     <Education />
                     <Skills />
+                    {(UserDataJSON.Certifications !== null) ? <Certifications /> : null}
                     <KeyResponsiblities />
                     <Projects />
                 </>

@@ -9,7 +9,7 @@ function ProfilePicture() {
     return (
         <section className='profile-picture'>
             <div className='picture'>
-                <img src={process.env.PUBLIC_URL + PersonalInfo.profilePicture} alt="Profile Picture" />
+                <img src={process.env.PUBLIC_URL + PersonalInfo.profilePicture} alt="Profile Pic" />
             </div>
         </section>
     );

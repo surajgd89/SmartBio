@@ -11,7 +11,7 @@ function Experience() {
         let from = new Date(fromDate);
         let to = new Date(toDate);
         const monthInmiliseconds = 2590000000;
-        if (toDate == "Present") {
+        if (toDate === "Present") {
             let difference = new Date(current - from).getTime();
             let months = Math.floor(difference / monthInmiliseconds);
             let yr = months / 12;
@@ -43,7 +43,7 @@ function Experience() {
         return exp;
     }
 
-    
+
 
 
 
@@ -56,7 +56,7 @@ function Experience() {
                         return (
                             <div className='item' key={index}>
                                 <div className='col-one'>
-                                    <h3>{new Date(item.fromDate).getFullYear()} - {item.toDate != "Present" ? new Date(item.toDate).getFullYear() : "Present"}</h3>
+                                    <h3>{new Date(item.fromDate).getFullYear()} - {item.toDate !== "Present" ? new Date(item.toDate).getFullYear() : "Present"}</h3>
                                     <div>{calcExp(item.fromDate, item.toDate)}</div>
                                 </div>
                                 <div className='col-two'>

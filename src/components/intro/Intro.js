@@ -17,7 +17,7 @@ function Intro() {
         let from = new Date(fromDate);
         let to = new Date(toDate);
         const monthInmiliseconds = 2590000000;
-        if (toDate == "Present") {
+        if (toDate === "Present") {
             let difference = new Date(current - from).getTime();
             let months = Math.floor(difference / monthInmiliseconds);
             let yr = months / 12;

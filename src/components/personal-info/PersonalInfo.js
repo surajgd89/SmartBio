@@ -40,6 +40,7 @@ function PersonalInfo() {
             break;
         case 12: birthmonth = "December";
             break;
+        default: birthmonth = null;
     }
     function ordinal(n) {
         var s = ["th", "st", "nd", "rd"];

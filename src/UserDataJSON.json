@@ -199,6 +199,41 @@
         ]
     },
 
+    "Certifications": [
+        {
+            "name": "HTML",
+            "organization": "Sololearn",
+            "url": ["https://www.sololearn.com/Certificate/1014-5502972/jpg/"]
+        },
+        {
+            "name": "CSS",
+            "organization": "Sololearn",
+            "url": ["https://www.sololearn.com/Certificate/1023-5502972/jpg/"]
+        },
+        {
+            "name": "JavaScript",
+            "organization": "Sololearn",
+            "url": [
+                "https://www.sololearn.com/certificates/course/en/5502972/1024/landscape/png"
+            ]
+        },
+        {
+            "name": "JQuery",
+            "organization": "Sololearn",
+            "url": ["https://www.sololearn.com/Certificate/1082-5502972/jpg"]
+        },
+        {
+            "name": "Web Development",
+            "organization": "Sololearn",
+            "url": ["https://www.sololearn.com/Certificate/1141-5502972/jpg"]
+        },
+        {
+            "name": "Responsive Web Design",
+            "organization": "Sololearn",
+            "url": ["https://www.sololearn.com/Certificate/1162-5502972/jpg"]
+        }
+    ],
+
     "keyResponsiblities": [
         "Client side development with convert design to HTML / CSS /Javascript / Jquery / Bootstrap / React",
         "Ensure browser compatibility",

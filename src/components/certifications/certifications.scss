@@ -1,0 +1,39 @@
+.content {
+    .certifications {
+        .list {
+            .item {
+                margin-bottom: 15px;
+
+                h4 {
+                    font-size: 16px;
+                    font-weight: var(--fw-medium);
+                    margin-bottom: 5px;
+                    color: var(--primary);
+                }
+
+                &::marker {
+                    color: var(--primary-half);
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .sublist {
+                    .subitem {
+                        font-size: 14px;
+
+                        a {
+                            color: var(--link);
+                            word-wrap: break-word;
+                        }
+
+                        &::marker {
+                            color: var(--primary-half);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

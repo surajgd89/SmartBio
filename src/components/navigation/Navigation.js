@@ -33,6 +33,9 @@ function Navigation(props) {
                     <Link activeClass="active" onClick={handleSetActive} to="skills" spy={true} smooth={true} offset={-(offsetTop + ContentPadding)} duration={1000}>Skills</Link>
                 </li>
                 <li>
+                    <Link activeClass="active" onClick={handleSetActive} to="certifications" spy={true} smooth={true} offset={-(offsetTop + ContentPadding)} duration={1000}>Certifications</Link>
+                </li>
+                <li>
                     <Link activeClass="active" onClick={handleSetActive} to="key-responsiblities" spy={true} smooth={true} offset={-(offsetTop + ContentPadding)} duration={1000}>Key Responsiblities</Link>
                 </li>
                 <li>
