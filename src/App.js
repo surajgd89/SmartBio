@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useContext, createRef } from 'react';
+import React, { useContext } from 'react';
 import { AppDataContext } from './AppDataProvider';
 import { RotatingSquare } from 'react-loader-spinner';
 import ScrollToTop from 'react-scroll-to-top';
@@ -8,8 +8,8 @@ import SmartBio from './SmartBio';
 
 
 function App() {
-    const { ApplicationData, UserDataJSON } = useContext(AppDataContext);
-    const ref = createRef();
+    const { ApplicationData } = useContext(AppDataContext);
+
     return (
         <>
             <RotatingSquare
@@ -29,8 +29,8 @@ function App() {
                 className="scroll-to-top"
             />
 
-            <SmartBio ref={ref} />
-            
+            <SmartBio />
+
 
         </>
     );

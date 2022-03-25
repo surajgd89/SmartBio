@@ -19,9 +19,6 @@ import Projects from './components/projects/Projects';
 import Declare from './components/declare/Declare';
 import Footer from './components/footer/Footer';
 
-
-
-
 function SmartBio() {
     const { ApplicationData, UserDataJSON } = useContext(AppDataContext);
     const ContentDiv = useRef('null');
@@ -87,11 +84,11 @@ function SmartBio() {
             return (
                 <>
                     <Experience />
-                    <Education />
                     <Skills />
                     {(UserDataJSON.Certifications !== null) ? <Certifications /> : null}
                     <KeyResponsiblities />
                     <Projects />
+                    <Education />
                 </>
             );
         }
@@ -103,11 +100,12 @@ function SmartBio() {
     });
 
 
+
     return (
         <div className="main-container">
             <div className="container">
                 <div className={ApplicationData.sidebar.active ? 'sidebar open' : 'sidebar'}>
-                    {ApplicationData.sidebar.active ? ApplicationData.scroll.blockScroll : ApplicationData.scroll.allowScroll}
+
                     <Sidebar />
                 </div>
                 <div className="wrapper">

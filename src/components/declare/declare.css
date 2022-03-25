@@ -64,6 +64,8 @@
   margin: auto;
   text-decoration: none;
   border-radius: 2px;
+  border: 0;
+  outline: 0;
 }
 
 .declare .action-sec .download-btn i {

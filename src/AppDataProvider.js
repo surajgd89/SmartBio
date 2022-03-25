@@ -9,7 +9,7 @@ const AppDataProvider = ({ children }) => {
     const [Loading, setLoading] = useState(true);
     const [WindowWidth, setWindowWidth] = useState(window.innerWidth);
     const [WindowHeight, setWindowHeight] = useState(window.innerHeight);
-    const [blockScroll, allowScroll] = useScrollBlock();
+
     const [XL, setXL] = useState(false);
     const [LG, setLG] = useState(false);
     const [MD, setMD] = useState(false);
@@ -42,10 +42,7 @@ const AppDataProvider = ({ children }) => {
             width: WindowWidth,
             height: WindowHeight,
         },
-        scroll: {
-            blockScroll: blockScroll(),
-            allowScroll: allowScroll(),
-        },
+
         header: {
             fixed: HeaderFixed,
         },
@@ -64,6 +61,7 @@ const AppDataProvider = ({ children }) => {
         setTimeout(() => {
             setLoading(false);
         }, 2500);
+
     });
 
 

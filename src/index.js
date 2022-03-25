@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import 'normalize.css';
 import './index.css';
 import App from './App';
+import AppDataProvider from './AppDataProvider';
 import reportWebVitals from './reportWebVitals';
-import AppDataProvider from './AppDataProvider'
 
 
 ReactDOM.render(
