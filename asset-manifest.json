@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SmartBio/static/css/main.12ffe939.css",
-    "main.js": "/SmartBio/static/js/main.2f545934.js",
+    "main.js": "/SmartBio/static/js/main.45ab1949.js",
     "static/js/703.34c104d6.chunk.js": "/SmartBio/static/js/703.34c104d6.chunk.js",
     "static/js/589.23a35529.chunk.js": "/SmartBio/static/js/589.23a35529.chunk.js",
     "static/js/787.be882391.chunk.js": "/SmartBio/static/js/787.be882391.chunk.js",
@@ -877,13 +877,13 @@
     "static/media/pro-fa-solid-900-5.8.2.woff2": "/SmartBio/static/media/pro-fa-solid-900-5.8.2.7d3b576672410c68f6a3.woff2",
     "static/media/pro-fa-solid-900-5.4.1.woff2": "/SmartBio/static/media/pro-fa-solid-900-5.4.1.b6114716dc9385bd67c1.woff2",
     "main.12ffe939.css.map": "/SmartBio/static/css/main.12ffe939.css.map",
-    "main.2f545934.js.map": "/SmartBio/static/js/main.2f545934.js.map",
+    "main.45ab1949.js.map": "/SmartBio/static/js/main.45ab1949.js.map",
     "703.34c104d6.chunk.js.map": "/SmartBio/static/js/703.34c104d6.chunk.js.map",
     "589.23a35529.chunk.js.map": "/SmartBio/static/js/589.23a35529.chunk.js.map",
     "787.be882391.chunk.js.map": "/SmartBio/static/js/787.be882391.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.12ffe939.css",
-    "static/js/main.2f545934.js"
+    "static/js/main.45ab1949.js"
   ]
 }
