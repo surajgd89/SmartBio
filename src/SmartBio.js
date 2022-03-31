@@ -78,7 +78,19 @@ function SmartBio() {
                 var imgData = canvas.toDataURL('image/JPEG', 1.0);
                 var doc = new jsPDF('p', 'px', [width, height], true);
                 doc.addImage(imgData, 'JPEG', 0, 0, width, height);
-                doc.save('SmartBio.pdf');
+
+                let now = new Date();
+                let date = now.getDate();
+                let month = now.getMonth() + 1;
+                let year = now.getFullYear();
+                let fullname = UserDataJSON.personalInfo.name.first + UserDataJSON.personalInfo.name.last;
+                if (date.toString().length == 1) {
+                    date = "0" + date;
+                }
+                if (month.toString().length == 1) {
+                    month = "0" + month;
+                }
+                doc.save(`SmartBio_${fullname}_${date}${month}${year}.pdf`);
             });
         }, 2000)
 
@@ -121,7 +133,7 @@ function SmartBio() {
         getOffsetTop();
         getPadding();
 
-    }, []);
+    });
 
     if (ApplicationData.sidebar.active) {
         document.body.style.overflow = "hidden"

@@ -8,7 +8,7 @@ function Header(props) {
     const { ApplicationData } = useContext(AppDataContext);
     return (
         <header className={ApplicationData.header.fixed ? 'header fixed' : 'header'} >
-            <div className='toggle' onClick={ApplicationData.sidebar.sidebarToggle}><i className='fal fa-bars'></i></div>
+            <div data-html2canvas-ignore="true" className='toggle' onClick={ApplicationData.sidebar.sidebarToggle}><i className='fal fa-bars'></i></div>
             <ProfilePicture />
             {ApplicationData.breakpoint.xl ? null : <Intro />}
             {ApplicationData.breakpoint.sm ? null : <Intro />}
