@@ -25,7 +25,6 @@ function Certifications() {
                         </li>);
                     })
                 }
-
             </ul>
         </section>
     );

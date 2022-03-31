@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
 import { AppDataContext } from './AppDataProvider';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import Header from './components/header/Header';
 import Intro from './components/intro/Intro';
 import CareerOverview from './components/career-overview/CareerOverview';
@@ -24,6 +26,7 @@ function SmartBio() {
     const ContentDiv = useRef('null');
     const [ContentOffsetTop, setContentOffsetTop] = useState(null);
     const [ContentPadding, setContentPadding] = useState(null);
+    const [isDownload, setisDownload] = useState(false);
 
     const ContentObj = {
         offsetTop: ContentOffsetTop,
@@ -31,6 +34,7 @@ function SmartBio() {
     }
 
     ApplicationData.content = ContentObj;
+    ApplicationData.isDownload = isDownload;
 
     const getOffsetTop = () => {
         setContentOffsetTop(ContentDiv.current.offsetTop);
@@ -60,6 +64,24 @@ function SmartBio() {
                 </>
             );
         }
+    }
+
+    function getPDF() {
+        setisDownload(true);
+        setTimeout(() => {
+            html2canvas(document.querySelector('.container'), {
+                dpi: 144,
+                scale: 2,
+            }).then((canvas) => {
+                let width = canvas.width / 4;
+                let height = canvas.height / 4;
+                var imgData = canvas.toDataURL('image/JPEG', 1.0);
+                var doc = new jsPDF('p', 'px', [width, height], true);
+                doc.addImage(imgData, 'JPEG', 0, 0, width, height);
+                doc.save('SmartBio.pdf');
+            });
+        }, 2000)
+
     }
 
     function Content() {
@@ -94,29 +116,35 @@ function SmartBio() {
         }
     }
 
+
     useEffect(() => {
         getOffsetTop();
         getPadding();
-    });
 
+    }, []);
 
+    if (ApplicationData.sidebar.active) {
+        document.body.style.overflow = "hidden"
+    } else {
+        document.body.style.overflow = "visible"
+    }
 
     return (
         <div className="main-container">
             <div className="container">
-                <div className={ApplicationData.sidebar.active ? 'sidebar open' : 'sidebar'}>
 
+                <div className={ApplicationData.sidebar.active ? 'sidebar open' : 'sidebar'}>
                     <Sidebar />
                 </div>
                 <div className="wrapper">
-                    {ApplicationData.breakpoint.xl ? <Header /> : null}
+                    {ApplicationData.breakpoint.xl ? <Header download={getPDF} /> : null}
                     <div className="content" ref={ContentDiv}>
-                        {ApplicationData.breakpoint.xl ? null : <Intro />}
-                        {ApplicationData.breakpoint.sm ? <Intro /> : null}
+                        {ApplicationData.breakpoint.xl ? null : <Intro isDownload={ApplicationData.isDownload} />}
+                        {ApplicationData.breakpoint.sm ? <Intro isDownload={ApplicationData.isDownload} /> : null}
                         <CareerOverview name="career-overview" />
                         <Content />
                     </div>
-                    <Declare />
+                    <Declare download={getPDF} />
                     <Footer />
                 </div>
             </div>

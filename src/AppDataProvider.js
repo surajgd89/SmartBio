@@ -1,5 +1,4 @@
 
-import useScrollBlock from './vendor/useScrollBlock/useScrollBlock';
 import UserDataJSON from './UserDataJSON.json';
 import React, { useState, useEffect, createContext } from 'react';
 export const AppDataContext = createContext();

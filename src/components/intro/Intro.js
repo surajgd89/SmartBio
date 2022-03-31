@@ -3,13 +3,13 @@ import './intro.css';
 import React, { useContext } from 'react';
 import { AppDataContext } from '../../AppDataProvider';
 import TypeAnimation from 'react-type-animation';
-function Intro() {
+function Intro(props) {
     const { UserDataJSON } = useContext(AppDataContext);
     const PersonalInfo = UserDataJSON.personalInfo;
     const designation = PersonalInfo.designation;
-
-
     const experience = UserDataJSON.experience;
+
+
 
     function calcExp(fromDate, toDate) {
         let exp;
@@ -42,18 +42,20 @@ function Intro() {
     })
 
 
-
     return (
         <section className='intro'>
             <h1 className='name'>{PersonalInfo.name.first} <span>{PersonalInfo.name.last}</span></h1>
             <h2 className='designation' >
-                <TypeAnimation
-                    cursor={false}
-                    className="type"
-                    sequence={designation}
-                    wrapper="div"
-                    repeat={Infinity}
-                />
+
+                {props.isDownload ? designation[0] :
+                    <TypeAnimation
+                        cursor={false}
+                        className="type"
+                        sequence={designation}
+                        wrapper="div"
+                        repeat={Infinity}
+                    />
+                }
             </h2>
             <div className='yr-experience'>
                 {totalExperience > 0 ? `${totalExperience} Year's of Experience` : "Fresher"}
