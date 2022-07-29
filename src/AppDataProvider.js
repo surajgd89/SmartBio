@@ -1,11 +1,9 @@
 
-//import UserDataJSON from './UserDataJSON.json';
+import UserDataJSON from './UserDataJSON.json';
 import React, { useState, useEffect, createContext } from 'react';
 export const AppDataContext = createContext();
 
 const AppDataProvider = ({ children }) => {
-
-
 
     const [Loading, setLoading] = useState(true);
     const [WindowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -17,8 +15,6 @@ const AppDataProvider = ({ children }) => {
     const [SM, setSM] = useState(false);
     const [SidebarActive, setSidebarActive] = useState(false);
     const [HeaderFixed, setHeaderFixed] = useState(false);
-
-
 
     const getDimensions = () => {
         setWindowWidth(window.innerWidth);
@@ -55,17 +51,6 @@ const AppDataProvider = ({ children }) => {
         setSidebarActive(!SidebarActive);
     }
 
-
-
-    let UserDataJSON = fetch('http://localhost:3000/SmartBioUsers/1')
-        .then(response => response.json())
-        .then(json => {
-
-            //setUserDataJSON(json)
-            return json
-        })
-
-    console.log(UserDataJSON)
 
     useEffect(() => {
         window.addEventListener('resize', getDimensions);

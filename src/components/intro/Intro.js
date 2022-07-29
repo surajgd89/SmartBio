@@ -9,8 +9,6 @@ function Intro(props) {
     const designation = PersonalInfo.designation;
     const experience = UserDataJSON.experience;
 
-
-
     function calcExp(fromDate, toDate) {
         let exp;
         let current = new Date();
@@ -22,13 +20,11 @@ function Intro(props) {
             let months = Math.floor(difference / monthInmiliseconds);
             let yr = months / 12;
             exp = Math.round(yr * 10) / 10;
-
         } else {
             let difference = new Date(to - from).getTime();
             let months = Math.floor(difference / monthInmiliseconds);
             let yr = months / 12;
             exp = Math.round(yr * 10) / 10;
-
         }
         return exp;
     }
@@ -38,6 +34,7 @@ function Intro(props) {
     experience.map((item, index) => {
         let workExp = calcExp(item.fromDate, item.toDate);
         totalExperience += workExp;
+        totalExperience = Math.floor(totalExperience)
         return totalExperience;
     })
 
