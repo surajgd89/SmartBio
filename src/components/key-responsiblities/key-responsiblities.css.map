@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAGY,QAHJ,CACJ,oBAAoB,CAChB,KAAK,CACD,KAAK,CAAC;EACF,aAAa,EAAE,IAAI;CAStB;;AAbb,AAMgB,QANR,CACJ,oBAAoB,CAChB,KAAK,CACD,KAAK,AAGA,QAAQ,CAAC;EACN,KAAK,EAAE,mBAAmB;CAC7B;;AARjB,AAUgB,QAVR,CACJ,oBAAoB,CAChB,KAAK,CACD,KAAK,AAOA,WAAW,CAAC;EACT,aAAa,EAAE,CAAC;CACnB",
-    "sources": [
-        "key-responsiblities.scss"
-    ],
-    "names": [],
-    "file": "key-responsiblities.css"
-}
+{"version":3,"sources":["key-responsiblities.scss"],"names":[],"mappings":"AAGY,0CACI,kBAAA,CAEA,kDACI,yBAAA,CAGJ,qDACI,eAAA","file":"key-responsiblities.css"}

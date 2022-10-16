@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAGY,QAHJ,CACJ,SAAS,CACL,KAAK,CACD,KAAK,CAAC;EACF,aAAa,EAAE,IAAI;CAStB;;AAbb,AAMgB,QANR,CACJ,SAAS,CACL,KAAK,CACD,KAAK,AAGA,QAAQ,CAAC;EACN,KAAK,EAAE,mBAAmB;CAC7B;;AARjB,AAUgB,QAVR,CACJ,SAAS,CACL,KAAK,CACD,KAAK,AAOA,WAAW,CAAC;EACT,aAAa,EAAE,CAAC;CACnB",
-    "sources": [
-        "projects.scss"
-    ],
-    "names": [],
-    "file": "projects.css"
-}
+{"version":3,"sources":["projects.scss"],"names":[],"mappings":"AAGY,+BACI,kBAAA,CAEA,uCACI,yBAAA,CAGJ,0CACI,eAAA","file":"projects.css"}
