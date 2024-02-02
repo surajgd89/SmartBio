@@ -1,5 +1,5 @@
 import './declare.css';
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import { AppDataContext } from '../../AppDataProvider';
 
 function Declare(props) {
@@ -14,7 +14,7 @@ function Declare(props) {
             <h3 className="name">{fullName}</h3>
             {ApplicationData.breakpoint.xl ? null : (
                 <div className="action-sec" data-html2canvas-ignore="true">
-                    <a className="download-btn" onClick={props.download}>
+                    <a href='' className="download-btn" onClick={props.download}>
                         <i className="fal fa-arrow-to-bottom"></i>
                         <span>Download PDF</span>
                     </a>

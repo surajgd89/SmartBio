@@ -1,0 +1,275 @@
+[
+    {
+        "id": 1,
+        "passkey": "SurajPatil",
+        "personalInfo": {
+            "name": {
+                "first": "Suraj",
+                "middle": "Ananda",
+                "last": "Patil"
+            },
+            "profilePicture": "/images/profile-picture.jpg",
+            "designation": [
+                "Front End Web Developer",
+                3000,
+                "UI Developer",
+                3000,
+                "MERN Developer",
+                3000
+            ],
+            "email": "suraj.gd89@gmail.com",
+            "mobile": "+91 9594415153",
+            "gender": "Male",
+            "dob": "1989-12-06",
+            "languages": ["Marathi", "Hindi", "English"],
+            "hobbies": ["Cooking", "Listen Music"],
+            "maritalStatus": "Married",
+            "address": "Meghmalhar, Building No. L10, Flat No. 302, 3rd Floor, Plot No. 2, Sector 10, Ghansoli, Navi Mumbai - 400701"
+        },
+
+        "aboutMe": [
+            "A quick learner who's eager to learn new skills",
+            "Can work effectively as part of a team and individually",
+            "Use creative approach for problem solving",
+            "Hardworking, energetic and self motivated",
+            "Reliable and great at time management",
+            "Well organized and great at Multitasking",
+            "Love to take on challenges with an open mind"
+        ],
+
+        "awards": [
+            {
+                "name": "Star Performer",
+                "desc": "2019 @ Infibeam Avenues Limited."
+            },
+            {
+                "name": "5 Years (Appereciation Certificate)",
+                "desc": "2022 @ Infibeam Avenues Limited."
+            },
+
+            {
+                "name": "Star Performer",
+                "desc": "2022 @ Infibeam Avenues Limited."
+            }
+        ],
+
+        "followMe": [
+            {
+                "name": "Linkedin",
+                "url": "https://www.linkedin.com/in/surajpatil89/"
+            }
+        ],
+
+        "references": [
+            {
+                "name": "Sarfaraz Shaikh",
+                "designation": "Manager - UI Development @ Infibeam Avenues",
+                "email": "sarfaraz.shaikh@avenues.info",
+                "mobile": "+91 9819914956"
+            },
+            {
+                "name": "Ateeque Shaikh",
+                "designation": "HOD - Design & Development @ OsourceGlobal",
+                "email": "ateeque.shaikh@osourceindia.com",
+                "mobile": "+91 9224467299"
+            }
+        ],
+
+        "careerOverview": "I am an innovative Front End Developer with more than 4 years of experience in building and maintaining responsive websites, web applications in the recruitment industry by harnessing advanced web technologies. One of my core competencies is my proficiency in HTML, CSS, jQuery, JavaScript and modern libraries, and frameworks. I am deeply passionate about usability and have excellent working knowledge of Adobe Photoshop & Illustrator, CoralDraw and Adobe XD.",
+
+        "experience": [
+            {
+                "companyName": "Infibeam Avenues Ltd.",
+                "designation": "Sr. UI Developer",
+                "fromDate": "2017,07,17",
+                "toDate": "Present"
+            },
+            {
+                "companyName": "Osource Global Ltd.",
+                "designation": "Creative Designer",
+                "fromDate": "2013,10,13",
+                "toDate": "2017,07,10"
+            }
+        ],
+
+        "education": [
+            {
+                "name": "Bachlor of Arts",
+                "from": "Yashwantrao Chavan Maharashtra Open University",
+                "level": "Degree",
+                "year": 2019
+            },
+            {
+                "name": "Web & Graphic Designing",
+                "from": "NIDT Multimedia Animation Institute, Chembur",
+                "level": "Diploma",
+                "year": 2012
+            },
+            {
+                "name": "H.S.C",
+                "from": "K. C. College, Talmavale",
+                "level": "College",
+                "year": 2007
+            },
+            {
+                "name": "S.S.C",
+                "from": "S. V. M. High School, Talmavale",
+                "level": "School",
+                "year": 2005
+            }
+        ],
+
+        "skills": {
+            "description": "HTML5, CSS3, SASS, JQuery, Bootstrap, JavaScript, JSON, SVG, React, JSON, NodeJs, Npm, Adobe Photoshop, CorelDraw, Adobe Illustrator,Adobe XD, VS Code, Ajax, Git",
+
+            "parts": [
+                {
+                    "title": "UI / UX Design",
+                    "list": [
+                        {
+                            "name": "Adobe Photoshop",
+                            "logo": "/images/photoshop.png"
+                        },
+                        {
+                            "name": "Adobe Illustrator",
+                            "logo": "/images/illustrator.png"
+                        },
+                        {
+                            "name": "Adobe XD",
+                            "logo": "/images/xd.png"
+                        },
+                        {
+                            "name": "CorelDRAW",
+                            "logo": "/images/coreldraw.png"
+                        }
+                    ]
+                },
+                {
+                    "title": "Front End Development",
+                    "list": [
+                        {
+                            "name": "HTML5",
+                            "logo": "/images/html.png"
+                        },
+                        {
+                            "name": "CSS3",
+                            "logo": "/images/css.png"
+                        },
+                        {
+                            "name": "JavaScript",
+                            "logo": "/images/javascript.png"
+                        },
+                        {
+                            "name": "JQuery",
+                            "logo": "/images/jquery.png"
+                        },
+                        {
+                            "name": "Bootstrap",
+                            "logo": "/images/bootstrap.png"
+                        },
+                        {
+                            "name": "SASS",
+                            "logo": "/images/sass.png"
+                        },
+                        {
+                            "name": "SVG",
+                            "logo": "/images/svg.png"
+                        },
+                        {
+                            "name": "React",
+                            "logo": "/images/react.png"
+                        },
+                        {
+                            "name": "JSON",
+                            "logo": "/images/json.png"
+                        }
+                    ]
+                },
+                {
+                    "title": "Other Key Tools",
+                    "list": [
+                        {
+                            "name": "VS Code",
+                            "logo": "/images/vscode.png"
+                        },
+                        {
+                            "name": "Git",
+                            "logo": "/images/git.png"
+                        },
+                        {
+                            "name": "NodeJs",
+                            "logo": "/images/nodejs.png"
+                        },
+                        {
+                            "name": "npm",
+                            "logo": "/images/npm.png"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "Certifications": [
+            {
+                "name": "HTML",
+                "organization": "Sololearn",
+                "url": [
+                    "https://www.sololearn.com/Certificate/1014-5502972/jpg/"
+                ]
+            },
+            {
+                "name": "CSS",
+                "organization": "Sololearn",
+                "url": [
+                    "https://www.sololearn.com/Certificate/1023-5502972/jpg/"
+                ]
+            },
+            {
+                "name": "JavaScript",
+                "organization": "Sololearn",
+                "url": [
+                    "https://www.sololearn.com/certificates/course/en/5502972/1024/landscape/png"
+                ]
+            },
+            {
+                "name": "JQuery",
+                "organization": "Sololearn",
+                "url": [
+                    "https://www.sololearn.com/Certificate/1082-5502972/jpg"
+                ]
+            },
+            {
+                "name": "Web Development",
+                "organization": "Sololearn",
+                "url": [
+                    "https://www.sololearn.com/Certificate/1141-5502972/jpg"
+                ]
+            },
+            {
+                "name": "Responsive Web Design",
+                "organization": "Sololearn",
+                "url": [
+                    "https://www.sololearn.com/Certificate/1162-5502972/jpg"
+                ]
+            }
+        ],
+
+        "keyResponsiblities": [
+            "Client side development with convert design to HTML / CSS /Javascript / Jquery / Bootstrap / React",
+            "Ensure browser compatibility",
+            "Responsive / Non - Responsive / PWA",
+            "Work in multidisciplinary team with other professionals such as back-end developers and web designers"
+        ],
+
+        "projects": [
+            "Merchant Accounting And Reporting System (M.A.R.S)",
+            "CCAvenue B2Biz",
+            "Products Websites",
+            "CCAvenue Admin",
+            "Merchant OnBoarding",
+            "Infibeam Job Portal"
+        ],
+
+        "declare": "I announce that the information and details shared in this resume are correct and inclusive. I take full liability for the correctness of the information."
+    }
+]

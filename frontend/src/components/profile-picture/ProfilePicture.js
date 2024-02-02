@@ -3,7 +3,10 @@ import React, { useContext } from 'react';
 import { AppDataContext } from '../../AppDataProvider';
 
 function ProfilePicture() {
+
     const { UserDataJSON } = useContext(AppDataContext);
+
+
     const PersonalInfo = UserDataJSON.personalInfo;
 
     return (

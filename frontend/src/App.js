@@ -1,14 +1,22 @@
 import './App.css';
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
+import { useContext } from 'react';
 import { AppDataContext } from './AppDataProvider';
 import { RotatingSquare } from 'react-loader-spinner';
 import ScrollToTop from 'react-scroll-to-top';
-import SmartBio from './SmartBio';
+//import SmartBio from './SmartBio';
 
 
 
 function App() {
-    const { ApplicationData } = useContext(AppDataContext);
+
+
+    const { ApplicationData, UserDataJSON } = useContext(AppDataContext);
+
+    useEffect(() => {
+        console.log(ApplicationData)
+    }, [])
+
 
     return (
         <>
@@ -29,8 +37,8 @@ function App() {
                 className="scroll-to-top"
             />
 
-            <SmartBio />
 
+            {/* <SmartBio /> */}
 
         </>
     );

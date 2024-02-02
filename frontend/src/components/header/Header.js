@@ -21,7 +21,7 @@ function Header(props) {
                     <i className='fal fa-phone-alt'></i>
                     <span>Call</span>
                 </a>
-                {!ApplicationData.header.fixed ? <a onClick={props.download} data-html2canvas-ignore="true">
+                {!ApplicationData.header.fixed ? <a href='' onClick={props.download} data-html2canvas-ignore="true">
                     <i className='fal fa-arrow-to-bottom'></i>
                     <span>PDF</span>
                 </a> : null}

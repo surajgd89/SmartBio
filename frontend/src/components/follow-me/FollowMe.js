@@ -14,7 +14,7 @@ function FollowMe() {
                         return (
                             <div className='data-item' key={index}>
                                 <h5>{item.name}</h5>
-                                <div><a href={item.url} target="_blank">{item.url.replace("https://", "")}</a></div>
+                                <div><a href={item.url} target="_blank" rel="noreferrer">{item.url.replace("https://", "")}</a></div>
                             </div>
                         );
                     })

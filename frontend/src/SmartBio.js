@@ -1,7 +1,11 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
+
 import { AppDataContext } from './AppDataProvider';
+
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+
 import Header from './components/header/Header';
 import Intro from './components/intro/Intro';
 import CareerOverview from './components/career-overview/CareerOverview';
@@ -84,10 +88,10 @@ function SmartBio() {
                 let month = now.getMonth() + 1;
                 let year = now.getFullYear();
                 let fullname = UserDataJSON.personalInfo.name.first + UserDataJSON.personalInfo.name.last;
-                if (date.toString().length == 1) {
+                if (date.toString().length === 1) {
                     date = "0" + date;
                 }
-                if (month.toString().length == 1) {
+                if (month.toString().length === 1) {
                     month = "0" + month;
                 }
                 doc.save(`SmartBio_${fullname}_${date}${month}${year}.pdf`);
@@ -128,11 +132,9 @@ function SmartBio() {
         }
     }
 
-
     useEffect(() => {
         getOffsetTop();
         getPadding();
-
     });
 
     if (ApplicationData.sidebar.active) {
@@ -167,4 +169,5 @@ function SmartBio() {
         </div>
     )
 }
+
 export default SmartBio;
