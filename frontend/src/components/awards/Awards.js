@@ -1,9 +1,9 @@
-import './awards.css';
+import './awards.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 function Awards() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const Awards = UserDataJSON.awards;
+    const { UserData } = useContext(AppContext);
+    const { awards } = UserData;
 
 
     return (
@@ -11,7 +11,7 @@ function Awards() {
             <h2 className='heading'>Awards</h2>
             <div className='data-list'>
                 {
-                    Awards.map((item, index) => {
+                    awards.map((item, index) => {
                         return (
                             <div className='data-item' key={index}>
                                 <h5>{item.name}</h5>

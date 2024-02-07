@@ -1,17 +1,20 @@
-import './header.css';
+import './header.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 import ProfilePicture from '../../components/profile-picture/ProfilePicture';
 import Intro from '../../components/intro/Intro';
 
-function Header(props) {
-    const { ApplicationData } = useContext(AppDataContext);
+function Header({ download }) {
+    const { AppData } = useContext(AppContext);
+    const { header, sidebar, breakpoint } = AppData;
+
+
     return (
-        <header className={ApplicationData.header.fixed ? 'header fixed' : 'header'} >
-            <div data-html2canvas-ignore="true" className='toggle' onClick={ApplicationData.sidebar.sidebarToggle}><i className='fal fa-bars'></i></div>
+        <header className={header.fixed ? 'header fixed' : 'header'} >
+            <div data-html2canvas-ignore="true" className='toggle' onClick={sidebar.sidebarToggle}><i className='fal fa-bars'></i></div>
             <ProfilePicture />
-            {ApplicationData.breakpoint.xl ? null : <Intro />}
-            {ApplicationData.breakpoint.sm ? null : <Intro />}
+            {breakpoint.xl ? null : <Intro />}
+            {breakpoint.sm ? null : <Intro />}
             <div className='action' >
                 <a href="mailto:suraj.gd89@gmail.com">
                     <i className='fal fa-envelope'></i>
@@ -21,10 +24,10 @@ function Header(props) {
                     <i className='fal fa-phone-alt'></i>
                     <span>Call</span>
                 </a>
-                {!ApplicationData.header.fixed ? <a href='' onClick={props.download} data-html2canvas-ignore="true">
+                {!header.fixed ? <button type='button' onClick={download} data-html2canvas-ignore="true">
                     <i className='fal fa-arrow-to-bottom'></i>
                     <span>PDF</span>
-                </a> : null}
+                </button> : null}
 
             </div>
         </header>

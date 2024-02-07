@@ -1,10 +1,10 @@
-import './about-me.css';
+import './about-me.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 
 function AboutMe() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const AboutList = UserDataJSON.aboutMe;
+    const { UserData } = useContext(AppContext);
+    const { aboutMe } = UserData;
 
     return (
         <section className='about-me'>
@@ -12,7 +12,7 @@ function AboutMe() {
             <ul className='list'>
 
                 {
-                    AboutList.map((item, index) => {
+                    aboutMe.map((item, index) => {
                         return <li className='item' key={index}>{item}</li>;
                     })
                 }

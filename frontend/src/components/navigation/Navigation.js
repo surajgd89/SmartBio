@@ -1,21 +1,22 @@
-import './navigation.css';
+import './navigation.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 import { Link } from 'react-scroll';
-function Navigation(props) {
-    const { ApplicationData } = useContext(AppDataContext);
-    const offsetTop = ApplicationData.content.offsetTop;
-    const ContentPadding = parseInt(ApplicationData.content.padding);
+function Navigation() {
+    const { AppData } = useContext(AppContext);
+    const { content, sidebar } = AppData;
+    const { offsetTop, padding } = content;
+    const ContentPadding = parseInt(padding);
 
     const handleSetActive = (to) => {
-        ApplicationData.sidebar.sidebarToggle();
+        sidebar.sidebarToggle();
     }
 
 
     return (
         <nav className="navigation" >
             <div className="action">
-                <button className="close" onClick={() => ApplicationData.sidebar.sidebarToggle()}>
+                <button className="close" onClick={() => sidebar.sidebarToggle()}>
                     <i className="fal fa-times"></i>
                 </button>
             </div>

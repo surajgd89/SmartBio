@@ -1,26 +1,28 @@
-import './declare.css';
+import './declare.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 
-function Declare(props) {
-    const { ApplicationData, UserDataJSON } = useContext(AppDataContext);
-    const PersonalInfo = UserDataJSON.personalInfo;
-    const declare = UserDataJSON.declare;
-    const fullName = `${PersonalInfo.name.first} ${PersonalInfo.name.middle} ${PersonalInfo.name.last}`;
+function Declare({ download }) {
+    const { AppData, UserData } = useContext(AppContext);
+
+    const { personalInfo, declare } = UserData
+
+    const fullName = `${personalInfo.name.first} ${personalInfo.name.middle} ${personalInfo.name.last}`;
 
     return (
         <section className="declare">
             <div className="description">{declare}</div>
             <h3 className="name">{fullName}</h3>
-            {ApplicationData.breakpoint.xl ? null : (
+            {AppData.breakpoint.xl ? null : (
                 <div className="action-sec" data-html2canvas-ignore="true">
-                    <a href='' className="download-btn" onClick={props.download}>
+                    <button type='button' className="download-btn" onClick={download}>
                         <i className="fal fa-arrow-to-bottom"></i>
                         <span>Download PDF</span>
-                    </a>
+                    </button>
                 </div>
-            )}
-        </section>
+            )
+            }
+        </section >
     );
 }
 export default Declare;

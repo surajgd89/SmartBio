@@ -1,13 +1,14 @@
 
-import './intro.css';
+import './intro.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 import TypeAnimation from 'react-type-animation';
-function Intro(props) {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const PersonalInfo = UserDataJSON.personalInfo;
-    const designation = PersonalInfo.designation;
-    const experience = UserDataJSON.experience;
+function Intro({ isDownload }) {
+    const { UserData } = useContext(AppContext);
+
+    const { personalInfo, experience } = UserData;
+    const { name, designation } = personalInfo;
+
 
     function calcExp(fromDate, toDate) {
         let exp;
@@ -41,10 +42,10 @@ function Intro(props) {
 
     return (
         <section className='intro'>
-            <h1 className='name'>{PersonalInfo.name.first} <span>{PersonalInfo.name.last}</span></h1>
+            <h1 className='name'>{name.first} <span>{name.last}</span></h1>
             <h2 className='designation' >
 
-                {props.isDownload ? designation[0] :
+                {isDownload ? designation[0] :
                     <TypeAnimation
                         cursor={false}
                         className="type"

@@ -1,9 +1,9 @@
-import './projects.css';
+import './projects.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 function Projects() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const projects = UserDataJSON.projects;
+    const { UserData } = useContext(AppContext);
+    const { projects } = UserData;
     return (
         <section className='projects'>
             <h2 className='heading'>Projects</h2>

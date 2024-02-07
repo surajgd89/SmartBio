@@ -1,9 +1,9 @@
-import './follow-me.css';
+import './follow-me.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 function FollowMe() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const followMe = UserDataJSON.followMe;
+    const { UserData } = useContext(AppContext);
+    const { followMe } = UserData;
     return (
         <section className='follow-me'>
             <h2 className='heading'>Follow Me</h2>

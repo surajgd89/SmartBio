@@ -1,9 +1,9 @@
-import './career-overview.css';
+import './career-overview.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 function CareerOverview() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const careerOverview = UserDataJSON.careerOverview;
+    const { UserData } = useContext(AppContext);
+    const { careerOverview } = UserData;
     return (
         <section className='career-overview'>
             <h2 className='heading'>Career Overview</h2>

@@ -1,9 +1,9 @@
-import './education.css';
+import './education.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
-function Education(props) {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const education = UserDataJSON.education;
+import { AppContext } from '../../AppContext';
+function Education() {
+    const { UserData } = useContext(AppContext);
+    const { education } = UserData;
 
     return (
         <section className='education'>

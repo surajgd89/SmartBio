@@ -1,10 +1,10 @@
-import './certifications.css';
+import './certifications.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 
 function Certifications() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const Certifications = UserDataJSON.Certifications;
+    const { UserData } = useContext(AppContext);
+    const { Certifications } = UserData;
     return (
         <section className='certifications'>
             <h2 className='heading'>Certifications</h2>

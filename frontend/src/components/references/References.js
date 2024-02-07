@@ -1,9 +1,9 @@
-import './references.css';
+import './references.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 function References() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const references = UserDataJSON.references;
+    const { UserData } = useContext(AppContext);
+    const { references } = UserData;
 
     return (
         <section className='references'>

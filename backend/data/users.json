@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "passkey": "SurajPatil",
+        "userId": "SurajPatil",
         "personalInfo": {
             "name": {
                 "first": "Suraj",
@@ -10,7 +10,7 @@
             },
             "profilePicture": "/images/profile-picture.jpg",
             "designation": [
-                "Front End Web Developer",
+                "Front End Developer",
                 3000,
                 "UI Developer",
                 3000,
@@ -22,9 +22,9 @@
             "gender": "Male",
             "dob": "1989-12-06",
             "languages": ["Marathi", "Hindi", "English"],
-            "hobbies": ["Cooking", "Listen Music"],
+            "hobbies": ["Cooking", "Listen Music", "Reading"],
             "maritalStatus": "Married",
-            "address": "Meghmalhar, Building No. L10, Flat No. 302, 3rd Floor, Plot No. 2, Sector 10, Ghansoli, Navi Mumbai - 400701"
+            "address": "Meghmalhar CHS, Building No. L10, Flat No. 302, 3rd Floor, Plot No. 2, Sector 10, Ghansoli, Navi Mumbai - 400701"
         },
 
         "aboutMe": [
@@ -43,7 +43,7 @@
                 "desc": "2019 @ Infibeam Avenues Limited."
             },
             {
-                "name": "5 Years (Appereciation Certificate)",
+                "name": "Service Award (5 Years)",
                 "desc": "2022 @ Infibeam Avenues Limited."
             },
 
@@ -64,13 +64,13 @@
             {
                 "name": "Sarfaraz Shaikh",
                 "designation": "Manager - UI Development @ Infibeam Avenues",
-                "email": "sarfaraz.shaikh@avenues.info",
+                "email": "sarfaraz@avenues.info",
                 "mobile": "+91 9819914956"
             },
             {
                 "name": "Ateeque Shaikh",
-                "designation": "HOD - Design & Development @ OsourceGlobal",
-                "email": "ateeque.shaikh@osourceindia.com",
+                "designation": "Sr. Project Manager @ OsourceGlobal",
+                "email": "ateeque.shaikh@osourceglobal.com",
                 "mobile": "+91 9224467299"
             }
         ],
@@ -141,6 +141,10 @@
                         {
                             "name": "CorelDRAW",
                             "logo": "/images/coreldraw.png"
+                        },
+                        {
+                            "name": "Figma",
+                            "logo": "/images/figma.png"
                         }
                     ]
                 },
@@ -262,10 +266,10 @@
         ],
 
         "projects": [
-            "Merchant Accounting And Reporting System (M.A.R.S)",
-            "CCAvenue B2Biz",
-            "Products Websites",
             "CCAvenue Admin",
+            "CCAvenue B2Biz",
+            "Merchant Accounting And Reporting System (M.A.R.S)",
+            "Products Websites",
             "Merchant OnBoarding",
             "Infibeam Job Portal"
         ],

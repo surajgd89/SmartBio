@@ -1,21 +1,14 @@
-import './personal-info.css';
+import './personal-info.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 function PersonalInfo() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const PersonalInfo = UserDataJSON.personalInfo;
-    const fullName = `${PersonalInfo.name.first} ${PersonalInfo.name.middle} ${PersonalInfo.name.last}`;
-    const email = PersonalInfo.email;
-    const mobile = PersonalInfo.mobile;
-    const gender = PersonalInfo.gender;
-    const languages = PersonalInfo.languages;
-    const hobbies = PersonalInfo.hobbies;
-    const maritalStatus = PersonalInfo.maritalStatus;
-    const dob = new Date(PersonalInfo.dob);
-    const address = PersonalInfo.address;
+    const { UserData } = useContext(AppContext);
+    const { personalInfo } = UserData;
+    const { name, email, mobile, gender, languages, hobbies, maritalStatus, dob, address } = personalInfo;
+    const fullName = `${name.first} ${name.middle} ${name.last}`;
 
     let birthmonth;
-    switch (dob.getMonth() + 1) {
+    switch (new Date(dob).getMonth() + 1) {
         case 1: birthmonth = "January";
             break;
         case 2: birthmonth = "February";
@@ -48,10 +41,6 @@ function PersonalInfo() {
         return (s[(v - 20) % 10] || s[v] || s[0]);
     }
 
-
-
-
-
     return (
         <section className='personal-info'>
             <h2 className='heading'>Personal Info</h2>
@@ -74,7 +63,7 @@ function PersonalInfo() {
 
                 <div className='data-item'>
                     <h5>DOB</h5>
-                    <div>{dob.getDate()}<sup>{ordinal(dob.getDate())}</sup> {birthmonth}, {dob.getFullYear()}</div>
+                    <div>{new Date(dob).getDate()}<sup>{ordinal(new Date(dob).getDate())}</sup> {birthmonth}, {new Date(dob).getFullYear()}</div>
                 </div>
 
                 <div className='data-item'>

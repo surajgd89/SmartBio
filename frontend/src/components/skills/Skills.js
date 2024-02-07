@@ -1,16 +1,16 @@
-import './skills.css';
+import './skills.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 
 function Skills() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const skills = UserDataJSON.skills;
-    const parts = UserDataJSON.skills.parts;
+    const { UserData } = useContext(AppContext);
+    const { skills } = UserData;
+    const { parts, description } = skills;
     return (
         <section className="skills">
             <h2 className="heading">Skills</h2>
             <div className="description">
-                {skills.description}
+                {description}
             </div>
             <div className="list">
                 {parts.map((item, index) => {
@@ -21,7 +21,6 @@ function Skills() {
                             <div className="item">
                                 {
                                     item.list.map((subitem, subindex) => {
-                                        //console.log(subitem.logo);
                                         return (
                                             <div className="logo" key={subindex}>
                                                 <img

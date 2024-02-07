@@ -1,18 +1,16 @@
-import './profile-picture.css';
+import './profile-picture.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 
 function ProfilePicture() {
 
-    const { UserDataJSON } = useContext(AppDataContext);
-
-
-    const PersonalInfo = UserDataJSON.personalInfo;
+    const { UserData } = useContext(AppContext);
+    const { personalInfo } = UserData;
 
     return (
         <section className='profile-picture'>
             <div className='picture'>
-                <img src={process.env.PUBLIC_URL + PersonalInfo.profilePicture} alt="Profile Pic" />
+                <img src={process.env.PUBLIC_URL + personalInfo.profilePicture} alt="Profile Pic" />
             </div>
         </section>
     );

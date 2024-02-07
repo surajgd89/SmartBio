@@ -1,9 +1,9 @@
-import './experience.css';
+import './experience.scss';
 import React, { useContext } from 'react';
-import { AppDataContext } from '../../AppDataProvider';
+import { AppContext } from '../../AppContext';
 function Experience() {
-    const { UserDataJSON } = useContext(AppDataContext);
-    const experience = UserDataJSON.experience;
+    const { UserData } = useContext(AppContext);
+    const { experience } = UserData;
 
     function calcExp(fromDate, toDate) {
         let exp;
