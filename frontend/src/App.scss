@@ -13,7 +13,7 @@ a {
 //PAGE CLASSES
 
 .loader {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: var(--tertiary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,11 +30,11 @@ a {
     svg {
         rect {
             &:first-child {
-                stroke: var(--secondary);
+                stroke: #fff;
             }
 
             &:last-child {
-                fill: var(--secondary);
+                fill: #fff;
             }
         }
     }

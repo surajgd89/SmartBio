@@ -15,7 +15,7 @@
                 }
 
                 div {
-                    color: #fff;
+                    color: var(--link);
 
                     a {
                         color: #fff;
@@ -62,11 +62,11 @@
                     color: var(--primary);
 
                     a {
-                        color: var(--primary);
+                        color: var(--link);
                         word-break: break-all;
                         &:hover,
                         &:focus {
-                            color: var(--secondary);
+                            color: var(--link);
                         }
                     }
                 }

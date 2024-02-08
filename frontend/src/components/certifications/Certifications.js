@@ -4,13 +4,13 @@ import { AppContext } from '../../AppContext';
 
 function Certifications() {
     const { UserData } = useContext(AppContext);
-    const { Certifications } = UserData;
+    const { certifications } = UserData;
     return (
         <section className='certifications'>
             <h2 className='heading'>Certifications</h2>
             <ul className='list'>
                 {
-                    Certifications.map((item, index) => {
+                    certifications.map((item, index) => {
                         return (<li className='item' key={index}>
                             <h4>{item.name}</h4>
                             <ul className='sublist'>

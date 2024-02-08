@@ -3,21 +3,28 @@
 
 :root {
     --primary: #1a1e4a;
+    --primary-half: rgba(0, 0, 0, 0.6);
     --primary-light: #f3f4fd;
-    --primary-half: rgba(26, 30, 74, 0.4);
-    --white-half: rgba(255, 255, 255, 0.4);
+
     --secondary: #fec82e;
-    --secondary-light: 254, 200, 46;
-    --secondary-half: #ebd59b;
-    --tertiary: #606060;
-    --border: #d0d7de;
+    --secondary-half: rgba(0, 0, 0, 0.6);
+    --secondary-light: rgba(0, 0, 0, 0.1);
+
+    --tertiary: #111111;
+
+    --white-half: rgba(255, 255, 255, 0.6);
+
+    --border: var(--primary-half);
+
+    --link: #0969da;
+
     --font: 'Poppins', sans-serif;
     --font-signature: 'Meow Script', cursive;
+
     --fw-light: 300;
     --fw-medium: 500;
     --fw-semibold: 600;
     --fw-bold: 700;
-    --link: #0969da;
 }
 
 html {
