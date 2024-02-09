@@ -9,9 +9,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/SmartBio/users', (req, res) => {
-   const userId = req.query.userId;
-   if (userId) {
-      const user = users.find(user => user.userId === userId);
+   const value = req.query.user;
+   if (value) {
+      const user = users.find(user => user.userName === value);
       if (user) {
          res.json(user);
       } else {
@@ -24,6 +24,6 @@ app.get('/SmartBio/users', (req, res) => {
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-   console.log(`Server is running on port ${PORT}`);
+   console.log(`SmartBio Server is running on port ${PORT}`);
 });
 

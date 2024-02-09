@@ -3,18 +3,18 @@
 
 :root {
     --primary: #1a1e4a;
-    --primary-half: rgba(0, 0, 0, 0.6);
-    --primary-light: #f3f4fd;
+    --primary-half: #9296c2;
+    --primary-light: #ecf0ff;
 
     --secondary: #fec82e;
-    --secondary-half: rgba(0, 0, 0, 0.6);
-    --secondary-light: rgba(0, 0, 0, 0.1);
+    --secondary-half: #ffffa6;
+    --secondary-light: #ffffff;
 
     --tertiary: #111111;
 
-    --white-half: rgba(255, 255, 255, 0.6);
+    --white-half: rgba(255, 255, 255, 0.5);
 
-    --border: var(--primary-half);
+    --border: #9296c2;
 
     --link: #0969da;
 

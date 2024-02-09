@@ -9,7 +9,7 @@
                 }
 
                 h5 {
-                    color: var(--white-half);
+                    color: var(--primary-half);
                     font-weight: var(--fw-medium);
                     font-size: 14px;
                 }
@@ -39,14 +39,12 @@
                     max-width: 100%;
                 }
 
-               
-
                 &:last-child {
                     margin-bottom: 0;
                 }
 
                 h5 {
-                    color: var(--primary-half);
+                   color: var(--primary-half);
                     font-weight: var(--fw-medium);
                     font-size: 14px;
                 }

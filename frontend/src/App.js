@@ -167,69 +167,24 @@ function App() {
         };
     }, []);
 
-    // function LightenDarkenColor(color, percentage) {
-
-    //     var num = parseInt(mycolor[1], 16);
-    //     var r = (num >> 16) + percentage;
-    //     var b = ((num >> 8) & 0x00FF) + percentage;
-    //     var g = (num & 0x0000FF) + percentage;
-    //     var newColor = g | (b << 8) | (r << 16);
-    //     console.log(`#${newColor.toString(16)}`)
-    //     return `#${newColor.toString(16)}`;
-    // }
-
-
-    // function shadeColor(color, percent) {
-
-    //     var mycolor = color.split("#");
-
-    //     var R = parseInt(mycolor[1].substring(1, 3), 16);
-    //     var G = parseInt(mycolor[1].substring(3, 5), 16);
-    //     var B = parseInt(mycolor[1].substring(5, 7), 16);
-
-    //     R = parseInt(R * (100 + percent) / 100);
-    //     G = parseInt(G * (100 + percent) / 100);
-    //     B = parseInt(B * (100 + percent) / 100);
-
-    //     R = (R < 255) ? R : 255;
-    //     G = (G < 255) ? G : 255;
-    //     B = (B < 255) ? B : 255;
-
-    //     R = Math.round(R)
-    //     G = Math.round(G)
-    //     B = Math.round(B)
-
-    //     var RR = ((R.toString(16).length == 1) ? "0" + R.toString(16) : R.toString(16));
-    //     var GG = ((G.toString(16).length == 1) ? "0" + G.toString(16) : G.toString(16));
-    //     var BB = ((B.toString(16).length == 1) ? "0" + B.toString(16) : B.toString(16));
-
-    //     return "#" + RR + GG + BB;
-    // }
-
-
-    const colorShade = (col, amt) => {
-        col = col.replace(/^#/, '')
-        if (col.length === 3) col = col[0] + col[0] + col[1] + col[1] + col[2] + col[2]
-
-        let [r, g, b] = col.match(/.{2}/g);
-        ([r, g, b] = [parseInt(r, 16) + amt, parseInt(g, 16) + amt, parseInt(b, 16) + amt])
-
-        r = Math.max(Math.min(255, r), 0).toString(16)
-        g = Math.max(Math.min(255, g), 0).toString(16)
-        b = Math.max(Math.min(255, b), 0).toString(16)
-
-        const rr = (r.length < 2 ? '0' : '') + r
-        const gg = (g.length < 2 ? '0' : '') + g
-        const bb = (b.length < 2 ? '0' : '') + b
-
-        return `#${rr}${gg}${bb}`
-    }
-
-
-
-
-
-
+    const colorShade = (hexColor, magnitude) => {
+        hexColor = hexColor.replace(`#`, ``);
+        if (hexColor.length === 6) {
+            const decimalColor = parseInt(hexColor, 16);
+            let r = (decimalColor >> 16) + magnitude;
+            r > 255 && (r = 255);
+            r < 0 && (r = 0);
+            let g = (decimalColor & 0x0000ff) + magnitude;
+            g > 255 && (g = 255);
+            g < 0 && (g = 0);
+            let b = ((decimalColor >> 8) & 0x00ff) + magnitude;
+            b > 255 && (b = 255);
+            b < 0 && (b = 0);
+            return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
+        } else {
+            return hexColor;
+        }
+    };
 
     useEffect(() => {
         if (!Loading) {
@@ -237,13 +192,14 @@ function App() {
             getPadding();
 
             document.documentElement.style.setProperty('--primary', theme.primary);
-            document.documentElement.style.setProperty('--primary-half', colorShade(theme.primary, 120));
+            document.documentElement.style.setProperty('--primary-half', colorShade(theme.primary, 110));
             document.documentElement.style.setProperty('--primary-light', colorShade(theme.primary, 210));
 
-            document.documentElement.style.setProperty('--secondary', theme.secondary);
-            document.documentElement.style.setProperty('--secondary-half', colorShade(theme.secondary, 120));
-            document.documentElement.style.setProperty('--secondary-light', colorShade(theme.secondary, 210));
+            document.documentElement.style.setProperty('--border', colorShade(theme.primary, 190));
 
+            document.documentElement.style.setProperty('--secondary', theme.secondary);
+            document.documentElement.style.setProperty('--secondary-half', colorShade(theme.secondary, 110));
+            document.documentElement.style.setProperty('--secondary-light', colorShade(theme.secondary, 210));
         }
     }, [Loading]);
 
@@ -256,7 +212,7 @@ function App() {
     const fetchData = async () => {
 
         const queryParams = new URLSearchParams(window.location.search);
-        let paramValue = queryParams.get('userId');
+        let paramValue = queryParams.get('user');
 
         if (window.location.search == "" || paramValue == null || paramValue == "") {
             paramValue = "demo"
@@ -264,7 +220,7 @@ function App() {
 
         try {
             await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
-            const response = await axios.get(`${API_URL}?userId=${paramValue}`);
+            const response = await axios.get(`${API_URL}?user=${paramValue}`);
             setUserData(response.data);
         } catch (error) {
             console.error('Error fetching data:', error.message);
@@ -274,7 +230,6 @@ function App() {
             setLoading(false);
         }
 
-
     };
 
     useEffect(() => {
@@ -283,7 +238,6 @@ function App() {
 
     return (
         <AppContext.Provider value={{ AppData, UserData }}>
-
 
 
             <RotatingSquare
@@ -303,10 +257,13 @@ function App() {
                 className="scroll-to-top"
             />
 
-            {!Loading &&
-                <div className="main-container">
-                    <div className="container">
 
+
+            {!Loading &&
+
+                <div className="main-container">
+
+                    <div className="container">
                         <div className={sidebar.active ? 'sidebar open' : 'sidebar'}>
                             <Sidebar />
                         </div>
@@ -345,14 +302,13 @@ function App() {
                             <Footer />
                         </div>
                     </div>
-                    <div
-                        className={sidebar.active ? 'overlay active' : 'overlay'}
-                        onClick={sidebar.sidebarToggle}
-                    ></div>
+                    <div className={sidebar.active ? 'overlay active' : 'overlay'}
+                        onClick={sidebar.sidebarToggle}></div>
+
                 </div>
             }
 
-        </AppContext.Provider>
+        </AppContext.Provider >
     );
 }
 export default App;
