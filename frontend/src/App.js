@@ -28,6 +28,7 @@ import KeyResponsiblities from './components/key-responsiblities/KeyResponsiblit
 import Projects from './components/projects/Projects';
 import Declare from './components/declare/Declare';
 import Footer from './components/footer/Footer';
+import UsersListing from './components/users-listing/UsersListing';
 
 function App() {
 
@@ -35,14 +36,15 @@ function App() {
 
     const [Loading, setLoading] = useState(true);
     const [UserData, setUserData] = useState([]);
+    const [AllUserData, setAllUserData] = useState([]);
     const [SidebarActive, setSidebarActive] = useState(false);
     const [HeaderFixed, setHeaderFixed] = useState(false);
     const ContentDiv = useRef('null');
     const [ContentOffsetTop, setContentOffsetTop] = useState(null);
     const [ContentPadding, setContentPadding] = useState(null);
     const [isDownload, setisDownload] = useState(false);
-    const [WindowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [WindowHeight, setWindowHeight] = useState(window.innerHeight);
+
+
     const [XL, setXL] = useState(false);
     const [LG, setLG] = useState(false);
     const [MD, setMD] = useState(false);
@@ -52,17 +54,15 @@ function App() {
         offsetTop: ContentOffsetTop,
         padding: ContentPadding,
     }
+
+
+
     const getDimensions = () => {
-        const newWindowWidth = window.innerWidth;
-        const newWindowHeight = window.innerHeight;
-
-        setWindowWidth(newWindowWidth);
-        setWindowHeight(newWindowHeight);
-
-        setXL(newWindowWidth < 1200);
-        setLG(newWindowWidth < 992);
-        setMD(newWindowWidth < 768);
-        setSM(newWindowWidth < 576);
+        const WindowWidth = window.innerWidth;
+        setXL(WindowWidth < 1200);
+        setLG(WindowWidth < 992);
+        setMD(WindowWidth < 768);
+        setSM(WindowWidth < 576);
     };
 
     const sidebarToggle = () => {
@@ -126,6 +126,25 @@ function App() {
 
     }
 
+    const colorShade = (hexColor, magnitude) => {
+        hexColor = hexColor.replace(`#`, ``);
+        if (hexColor.length === 6) {
+            const decimalColor = parseInt(hexColor, 16);
+            let r = (decimalColor >> 16) + magnitude;
+            r > 255 && (r = 255);
+            r < 0 && (r = 0);
+            let g = (decimalColor & 0x0000ff) + magnitude;
+            g > 255 && (g = 255);
+            g < 0 && (g = 0);
+            let b = ((decimalColor >> 8) & 0x00ff) + magnitude;
+            b > 255 && (b = 255);
+            b < 0 && (b = 0);
+            return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
+        } else {
+            return hexColor;
+        }
+    };
+
     const AppData = {
         sidebar: {
             active: SidebarActive,
@@ -167,41 +186,65 @@ function App() {
         };
     }, []);
 
-    const colorShade = (hexColor, magnitude) => {
-        hexColor = hexColor.replace(`#`, ``);
-        if (hexColor.length === 6) {
-            const decimalColor = parseInt(hexColor, 16);
-            let r = (decimalColor >> 16) + magnitude;
-            r > 255 && (r = 255);
-            r < 0 && (r = 0);
-            let g = (decimalColor & 0x0000ff) + magnitude;
-            g > 255 && (g = 255);
-            g < 0 && (g = 0);
-            let b = ((decimalColor >> 8) & 0x00ff) + magnitude;
-            b > 255 && (b = 255);
-            b < 0 && (b = 0);
-            return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
-        } else {
-            return hexColor;
-        }
-    };
-
     useEffect(() => {
         if (!Loading) {
-            getOffsetTop();
-            getPadding();
 
-            document.documentElement.style.setProperty('--primary', theme.primary);
-            document.documentElement.style.setProperty('--primary-half', colorShade(theme.primary, 110));
-            document.documentElement.style.setProperty('--primary-light', colorShade(theme.primary, 210));
+            if (!AllUserData.length) {
+                getOffsetTop();
+                getPadding();
+                document.documentElement.style.setProperty('--primary', theme.primary);
+                document.documentElement.style.setProperty('--primary-half', colorShade(theme.primary, 110));
+                document.documentElement.style.setProperty('--primary-light', colorShade(theme.primary, 210));
+                document.documentElement.style.setProperty('--border', colorShade(theme.primary, 190));
+                document.documentElement.style.setProperty('--secondary', theme.secondary);
+                document.documentElement.style.setProperty('--secondary-half', colorShade(theme.secondary, 110));
+                document.documentElement.style.setProperty('--secondary-light', colorShade(theme.secondary, 210));
+            }
 
-            document.documentElement.style.setProperty('--border', colorShade(theme.primary, 190));
-
-            document.documentElement.style.setProperty('--secondary', theme.secondary);
-            document.documentElement.style.setProperty('--secondary-half', colorShade(theme.secondary, 110));
-            document.documentElement.style.setProperty('--secondary-light', colorShade(theme.secondary, 210));
         }
-    }, [Loading]);
+    }, [Loading, AllUserData.length]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+
+            const queryParams = new URLSearchParams(window.location.search);
+            let paramValue = queryParams.get('user');
+
+            if (window.location.search === "" || paramValue === null || paramValue === "") {
+
+                try {
+                    await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
+                    const response = await axios.get(`${API_URL}`);
+                    setAllUserData(response.data);
+                } catch (error) {
+                    console.error('Error fetching All user data:', error.message);
+                    setLoading(true);
+                    throw error;
+                } finally {
+                    setLoading(false);
+                }
+
+            } else {
+
+                try {
+                    await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
+                    const response = await axios.get(`${API_URL}?user=${paramValue}`);
+                    setUserData(response.data);
+                } catch (error) {
+                    console.error('Error fetching user data:', error.message);
+                    setLoading(true);
+                    throw error;
+                } finally {
+                    setLoading(false);
+                }
+
+            }
+
+        };
+        fetchData();
+    }, []);
+
+
 
     if (SidebarActive) {
         document.body.style.overflow = "hidden"
@@ -209,36 +252,8 @@ function App() {
         document.body.style.overflow = "visible"
     }
 
-    const fetchData = async () => {
-
-        const queryParams = new URLSearchParams(window.location.search);
-        let paramValue = queryParams.get('user');
-
-        if (window.location.search == "" || paramValue == null || paramValue == "") {
-            paramValue = "demo"
-        }
-
-        try {
-            await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
-            const response = await axios.get(`${API_URL}?user=${paramValue}`);
-            setUserData(response.data);
-        } catch (error) {
-            console.error('Error fetching data:', error.message);
-            setLoading(true);
-            throw error;
-        } finally {
-            setLoading(false);
-        }
-
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
     return (
         <AppContext.Provider value={{ AppData, UserData }}>
-
 
             <RotatingSquare
                 ariaLabel="rotating-square"
@@ -257,55 +272,57 @@ function App() {
                 className="scroll-to-top"
             />
 
-
-
             {!Loading &&
-
-                <div className="main-container">
-
-                    <div className="container">
-                        <div className={sidebar.active ? 'sidebar open' : 'sidebar'}>
-                            <Sidebar />
-                        </div>
-                        <div className="wrapper">
-                            {breakpoint.xl && <Header download={getPDF} />}
-                            <div className="content" ref={ContentDiv}>
-                                {!breakpoint.xl && <Intro isDownload={isDownload} />}
-                                {breakpoint.sm && <Intro isDownload={isDownload} />}
-                                <CareerOverview name="career-overview" />
-                                {breakpoint.xl ?
-                                    <>
-                                        <AboutMe name="about-me" />
-                                        <Experience name="experience" />
-                                        <Skills name="skills" />
-                                        {certifications !== null && <Certifications name="certifications" />}
-                                        <KeyResponsiblities name="key-responsiblities" />
-                                        <Projects name="projects" />
-                                        {awards !== null && <Awards name="awards" />}
-                                        <Education name="education" />
-                                        <PersonalInfo name="personal-info" />
-                                        {references !== null && <References name="references" />}
-                                        {followMe !== null && <FollowMe name="follow-Me" />}
-                                    </>
-                                    :
-                                    <>
-                                        <Experience />
-                                        <Skills />
-                                        {certifications !== null && <Certifications />}
-                                        <KeyResponsiblities />
-                                        <Projects />
-                                        <Education />
-                                    </>
-                                }
+                <>
+                    {AllUserData.length ?
+                        <UsersListing AllUserData={AllUserData} />
+                        :
+                        <div className="main-container">
+                            <div className="container">
+                                <div className={sidebar.active ? 'sidebar open' : 'sidebar'}>
+                                    <Sidebar />
+                                </div>
+                                <div className="wrapper">
+                                    {breakpoint.xl && <Header download={getPDF} />}
+                                    <div className="content" ref={ContentDiv}>
+                                        {!breakpoint.xl && <Intro isDownload={isDownload} />}
+                                        {breakpoint.sm && <Intro isDownload={isDownload} />}
+                                        <CareerOverview name="career-overview" />
+                                        {breakpoint.xl ?
+                                            <>
+                                                <AboutMe name="about-me" />
+                                                <Experience name="experience" />
+                                                <Skills name="skills" />
+                                                {certifications !== null && <Certifications name="certifications" />}
+                                                <KeyResponsiblities name="key-responsiblities" />
+                                                <Projects name="projects" />
+                                                {awards !== null && <Awards name="awards" />}
+                                                <Education name="education" />
+                                                <PersonalInfo name="personal-info" />
+                                                {references !== null && <References name="references" />}
+                                                {followMe !== null && <FollowMe name="follow-Me" />}
+                                            </>
+                                            :
+                                            <>
+                                                <Experience />
+                                                <Skills />
+                                                {certifications !== null && <Certifications />}
+                                                <KeyResponsiblities />
+                                                <Projects />
+                                                <Education />
+                                            </>
+                                        }
+                                    </div>
+                                    <Declare download={getPDF} />
+                                    <Footer />
+                                </div>
                             </div>
-                            <Declare download={getPDF} />
-                            <Footer />
-                        </div>
-                    </div>
-                    <div className={sidebar.active ? 'overlay active' : 'overlay'}
-                        onClick={sidebar.sidebarToggle}></div>
+                            <div className={sidebar.active ? 'overlay active' : 'overlay'}
+                                onClick={sidebar.sidebarToggle}></div>
 
-                </div>
+                        </div>
+                    }
+                </>
             }
 
         </AppContext.Provider >
