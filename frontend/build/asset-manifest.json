@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.edf3da97.css",
-    "main.js": "/static/js/main.a93806fe.js",
+    "main.css": "/static/css/main.7db02782.css",
+    "main.js": "/static/js/main.1542d8d6.js",
     "static/js/703.34c104d6.chunk.js": "/static/js/703.34c104d6.chunk.js",
-    "static/js/631.e2372f34.chunk.js": "/static/js/631.e2372f34.chunk.js",
+    "static/js/631.cec55f2e.chunk.js": "/static/js/631.cec55f2e.chunk.js",
     "static/media/pro-fa-duotone-900-5.0.0.svg": "/static/media/pro-fa-duotone-900-5.0.0.bfbba24b556d42592b80.svg",
     "static/media/pro-fa-brands-400-5.0.0.svg": "/static/media/pro-fa-brands-400-5.0.0.f0a4dac826f21cbf4a12.svg",
     "static/media/pro-fa-light-300-5.0.0.svg": "/static/media/pro-fa-light-300-5.0.0.2ab97f2960db64fb5194.svg",
@@ -875,13 +875,13 @@
     "static/media/pro-fa-brands-400-5.0.1.woff2": "/static/media/pro-fa-brands-400-5.0.1.bbe3e0dfaaa7f8c4254f.woff2",
     "static/media/pro-fa-solid-900-5.8.2.woff2": "/static/media/pro-fa-solid-900-5.8.2.7d3b576672410c68f6a3.woff2",
     "static/media/pro-fa-solid-900-5.4.1.woff2": "/static/media/pro-fa-solid-900-5.4.1.b6114716dc9385bd67c1.woff2",
-    "main.edf3da97.css.map": "/static/css/main.edf3da97.css.map",
-    "main.a93806fe.js.map": "/static/js/main.a93806fe.js.map",
+    "main.7db02782.css.map": "/static/css/main.7db02782.css.map",
+    "main.1542d8d6.js.map": "/static/js/main.1542d8d6.js.map",
     "703.34c104d6.chunk.js.map": "/static/js/703.34c104d6.chunk.js.map",
-    "631.e2372f34.chunk.js.map": "/static/js/631.e2372f34.chunk.js.map"
+    "631.cec55f2e.chunk.js.map": "/static/js/631.cec55f2e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.edf3da97.css",
-    "static/js/main.a93806fe.js"
+    "static/css/main.7db02782.css",
+    "static/js/main.1542d8d6.js"
   ]
 }
