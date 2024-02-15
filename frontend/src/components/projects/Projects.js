@@ -2,8 +2,8 @@ import './projects.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function Projects() {
-    const { UserData } = useContext(AppContext);
-    const { projects } = UserData;
+    const { user } = useContext(AppContext);
+    const { projects } = user;
     return (
         <section className='projects'>
             <h2 className='heading'>Projects</h2>

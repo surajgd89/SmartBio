@@ -2,8 +2,8 @@ import './follow-me.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function FollowMe() {
-    const { UserData } = useContext(AppContext);
-    const { followMe } = UserData;
+    const { user } = useContext(AppContext);
+    const { followMe } = user;
     return (
         <section className='follow-me'>
             <h2 className='heading'>Follow Me</h2>

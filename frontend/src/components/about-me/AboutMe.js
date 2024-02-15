@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 
 function AboutMe() {
-    const { UserData } = useContext(AppContext);
-    const { aboutMe } = UserData;
+    const { user } = useContext(AppContext);
+    const { aboutMe } = user;
 
     return (
         <section className='about-me'>

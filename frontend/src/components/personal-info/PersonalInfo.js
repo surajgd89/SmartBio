@@ -2,8 +2,8 @@ import './personal-info.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function PersonalInfo() {
-    const { UserData } = useContext(AppContext);
-    const { personalInfo } = UserData;
+    const { user } = useContext(AppContext);
+    const { personalInfo } = user;
     const { name, email, mobile, gender, languages, hobbies, maritalStatus, dob, address } = personalInfo;
     const fullName = `${name.first} ${name.middle} ${name.last}`;
 

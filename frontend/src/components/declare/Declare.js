@@ -2,10 +2,10 @@ import './declare.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 
-function Declare({ download }) {
-    const { AppData, UserData } = useContext(AppContext);
+function Declare({ download, AppData }) {
+    const { user } = useContext(AppContext);
 
-    const { personalInfo, declare } = UserData
+    const { personalInfo, declare } = user
 
     const fullName = `${personalInfo.name.first} ${personalInfo.name.middle} ${personalInfo.name.last}`;
 

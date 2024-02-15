@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 
 function Certifications() {
-    const { UserData } = useContext(AppContext);
-    const { certifications } = UserData;
+    const { user } = useContext(AppContext);
+    const { certifications } = user;
     return (
         <section className='certifications'>
             <h2 className='heading'>Certifications</h2>

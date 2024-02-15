@@ -2,8 +2,8 @@ import './career-overview.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function CareerOverview() {
-    const { UserData } = useContext(AppContext);
-    const { careerOverview } = UserData;
+    const { user } = useContext(AppContext);
+    const { careerOverview } = user;
     return (
         <section className='career-overview'>
             <h2 className='heading'>Career Overview</h2>

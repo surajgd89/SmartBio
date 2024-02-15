@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "userName": "SurajPatil",
         "theme": {
             "primary": "#1a1e4a",
@@ -30,7 +30,6 @@
             "maritalStatus": "Married",
             "address": "Meghmalhar CHS, Building No. L10, Flat No. 302, 3rd Floor, Plot No. 2, Sector 10, Ghansoli, Navi Mumbai - 400701"
         },
-
         "aboutMe": [
             "A quick learner who's eager to learn new skills",
             "Can work effectively as part of a team and individually",
@@ -40,7 +39,6 @@
             "Well organized and great at Multitasking",
             "Love to take on challenges with an open mind"
         ],
-
         "awards": [
             {
                 "name": "Star Performer",
@@ -50,20 +48,17 @@
                 "name": "Service Award (5 Years)",
                 "desc": "2022 @ Infibeam Avenues Limited."
             },
-
             {
                 "name": "Star Performer",
                 "desc": "2022 @ Infibeam Avenues Limited."
             }
         ],
-
         "followMe": [
             {
                 "name": "Linkedin",
                 "url": "https://www.linkedin.com/in/surajpatil89/"
             }
         ],
-
         "references": [
             {
                 "name": "Sarfaraz Shaikh",
@@ -78,24 +73,21 @@
                 "mobile": "+91 9224467299"
             }
         ],
-
         "careerOverview": "I am an innovative Front End Developer with more than 4 years of experience in building and maintaining responsive websites, web applications in the recruitment industry by harnessing advanced web technologies. One of my core competencies is my proficiency in HTML, CSS, jQuery, JavaScript and modern libraries, and frameworks. I am deeply passionate about usability and have excellent working knowledge of Adobe Photoshop & Illustrator, CoralDraw and Adobe XD.",
-
         "experience": [
             {
                 "companyName": "Infibeam Avenues Ltd.",
                 "designation": "Sr. UI Developer",
-                "fromDate": "2017,07,17",
+                "fromDate": "2017-07-17",
                 "toDate": "Present"
             },
             {
                 "companyName": "Osource Global Ltd.",
                 "designation": "Creative Designer",
-                "fromDate": "2013,10,13",
-                "toDate": "2017,07,10"
+                "fromDate": "2013-10-13",
+                "toDate": "2017-07-10"
             }
         ],
-
         "education": [
             {
                 "name": "Bachlor of Arts",
@@ -122,10 +114,8 @@
                 "year": 2005
             }
         ],
-
         "skills": {
             "description": "HTML5, CSS3, SASS, JQuery, Bootstrap, JavaScript, JSON, SVG, React, JSON, NodeJs, Npm, Adobe Photoshop, CorelDraw, Adobe Illustrator,Adobe XD, VS Code, Ajax, Git",
-
             "parts": [
                 {
                     "title": "UI / UX Design",
@@ -216,7 +206,6 @@
                 }
             ]
         },
-
         "certifications": [
             {
                 "name": "HTML",
@@ -261,14 +250,12 @@
                 ]
             }
         ],
-
         "keyResponsiblities": [
             "Client side development with convert design to HTML / CSS /Javascript / Jquery / Bootstrap / React",
             "Ensure browser compatibility",
             "Responsive / Non - Responsive / PWA",
             "Work in multidisciplinary team with other professionals such as back-end developers and web designers"
         ],
-
         "projects": [
             "CCAvenue Admin",
             "CCAvenue B2Biz",
@@ -277,12 +264,10 @@
             "Merchant OnBoarding",
             "Infibeam Job Portal"
         ],
-
         "declare": "I announce that the information and details shared in this resume are correct and inclusive. I take full liability for the correctness of the information."
     },
-
     {
-        "id": 2,
+        "id": "2",
         "userName": "NikitSoni",
         "theme": {
             "primary": "#0C2D57",
@@ -314,28 +299,24 @@
             "maritalStatus": "Single",
             "address": "Janseva Committee, Golibar 5th Road, Santacruz East, Mumbai - 400055"
         },
-
         "aboutMe": [
             "Proactive Problem Solver: Takes initiative to identify issues and proactively implements innovative solutions, utilizing critical thinking and analytical skills to overcome obstacles.",
             "Passionate about Continuous Improvement: Committed to personal and professional growth, consistently seeking opportunities to enhance skills and knowledge to excel in all endeavors.",
             "Excellent Communication Skills: Proficient in conveying ideas clearly and effectively, fostering open dialogue and collaboration across diverse teams and stakeholders.            ",
             "Adaptable and Resilient: Thrives in dynamic environments and embraces change with resilience, demonstrating flexibility to meet evolving challenges head-on."
         ],
-
         "awards": [
             {
                 "name": "1st Podium in Techxhibition",
                 "desc": "2022 @ Kiran Fest, K.C College."
             }
         ],
-
         "followMe": [
             {
                 "name": "Linkedin",
                 "url": "https://in.linkedin.com/in/nikit-soni-71ba50163"
             }
         ],
-
         "references": [
             {
                 "name": "Shweta",
@@ -344,18 +325,15 @@
                 "mobile": "+91 9890055917"
             }
         ],
-
         "careerOverview": "I am a versatile software developer with over a year of hands-on experience in Backend development. My expertise lies in crafting robust and scalable solutions primarily using Python Django, while also proficiently navigating through other tech stacks such as PHP Codeigniter and Node.js. Throughout my career, I've demonstrated a keen ability to conceptualize, develop, and maintain complex systems, leveraging my deep understanding of backend technologies and frameworks. My commitment to excellence extends beyond coding; I prioritize collaboration, effective communication, and continuous learning to deliver impactful solutions that meet and exceed client expectations.",
-
         "experience": [
             {
                 "companyName": "Infibeam Avenues Ltd.",
                 "designation": "Junior Software Programmer",
-                "fromDate": "2023,01,20",
+                "fromDate": "2023-01-20",
                 "toDate": "Present"
             }
         ],
-
         "education": [
             {
                 "name": "Bachlore's in Computer Science",
@@ -376,10 +354,8 @@
                 "year": 2016
             }
         ],
-
         "skills": {
             "description": "Data Structures, Algorithms, Python, Django, FastAPI, AWS, PHP, Codeigniter, JavaScript, NodeJs, JSON, DBMS, Computer Networks, Operating System, Npm, Git, Github/Gitlab, Bitbucket",
-
             "parts": [
                 {
                     "title": "Fundamentals & Logic",
@@ -466,7 +442,6 @@
                 }
             ]
         },
-
         "certifications": [
             {
                 "name": "Data Structures & Algorithms",
@@ -484,7 +459,6 @@
                 "url": ["https://www.hackerrank.com/certificates/83d56671662f"]
             }
         ],
-
         "keyResponsiblities": [
             "Develop and maintain backend systems, ensuring optimal functionality, performance, and security.",
             "Collaborate with cross-functional teams to gather requirements, design solutions, and implement features.",
@@ -492,13 +466,11 @@
             "Implement and integrate third-party APIs and services to enhance system capabilities.",
             "Participate in code reviews, knowledge sharing sessions, and team meetings to ensure alignment with project goals and objectives."
         ],
-
         "projects": [
             "CCAvenue Admin",
             "Django Ecommerce Backend Project",
             "Mithibai Kshitij Registration Website"
         ],
-
         "declare": "I announce that the information and details shared in this resume are correct and inclusive. I take full liability for the correctness of the information."
     }
 ]

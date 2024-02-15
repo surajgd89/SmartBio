@@ -72,3 +72,18 @@ h5,
 h6 {
     font-weight: normal;
 }
+
+.main-container .container {
+    animation: fadeIn ease-in-out 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

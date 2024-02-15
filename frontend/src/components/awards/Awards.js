@@ -2,8 +2,8 @@ import './awards.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function Awards() {
-    const { UserData } = useContext(AppContext);
-    const { awards } = UserData;
+    const { user } = useContext(AppContext);
+    const { awards } = user;
 
 
     return (

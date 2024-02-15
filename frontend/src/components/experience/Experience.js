@@ -2,8 +2,8 @@ import './experience.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function Experience() {
-    const { UserData } = useContext(AppContext);
-    const { experience } = UserData;
+    const { user } = useContext(AppContext);
+    const { experience } = user;
 
     function calcExp(fromDate, toDate) {
         let exp;
@@ -42,11 +42,6 @@ function Experience() {
         }
         return exp;
     }
-
-
-
-
-
     return (
         <section className='experience'>
             <h2 className='heading'>Experience</h2>

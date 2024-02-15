@@ -4,9 +4,9 @@ import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 import TypeAnimation from 'react-type-animation';
 function Intro({ isDownload }) {
-    const { UserData } = useContext(AppContext);
+    const { user } = useContext(AppContext);
 
-    const { personalInfo, experience } = UserData;
+    const { personalInfo, experience } = user;
     const { name, designation } = personalInfo;
 
 

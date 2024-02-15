@@ -2,8 +2,8 @@ import './references.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function References() {
-    const { UserData } = useContext(AppContext);
-    const { references } = UserData;
+    const { user } = useContext(AppContext);
+    const { references } = user;
 
     return (
         <section className='references'>

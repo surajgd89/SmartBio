@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 
 function Skills() {
-    const { UserData } = useContext(AppContext);
-    const { skills } = UserData;
+    const { user } = useContext(AppContext);
+    const { skills } = user;
     const { parts, description } = skills;
     return (
         <section className="skills">

@@ -2,8 +2,8 @@ import './education.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function Education() {
-    const { UserData } = useContext(AppContext);
-    const { education } = UserData;
+    const { user } = useContext(AppContext);
+    const { education } = user;
 
     return (
         <section className='education'>

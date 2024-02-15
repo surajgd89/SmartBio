@@ -2,8 +2,8 @@ import './key-responsiblities.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function KeyResponsiblities() {
-    const { UserData } = useContext(AppContext);
-    const { keyResponsiblities } = UserData;
+    const { user } = useContext(AppContext);
+    const { keyResponsiblities } = user;
     return (
         <section className='key-responsiblities'>
             <h2 className='heading'>Key Responsiblities</h2>

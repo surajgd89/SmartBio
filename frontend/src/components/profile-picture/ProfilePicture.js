@@ -4,8 +4,8 @@ import { AppContext } from '../../AppContext';
 
 function ProfilePicture() {
 
-    const { UserData } = useContext(AppContext);
-    const { personalInfo } = UserData;
+    const { user } = useContext(AppContext);
+    const { personalInfo } = user;
 
     return (
         <section className='profile-picture'>
