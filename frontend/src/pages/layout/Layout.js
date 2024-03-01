@@ -1,6 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-
-import { AppContext } from "../../AppContext";
+import { AppContext } from "../smartbio/AppContext";
 import { useContext } from "react";
 
 
@@ -25,6 +24,9 @@ const Layout = () => {
                      <Link to={`/smartbio/${user.id}`}>SmartBio</Link>
                   </li>
                   <li>
+                     <Link to="/change-password">Change Password</Link>
+                  </li>
+                  <li>
                      <Link to="/login">Login</Link>
                   </li>
                   <li>
@@ -34,11 +36,10 @@ const Layout = () => {
                      <Link to="/forgot-password">Forgot Password</Link>
                   </li>
                   <li>
-                     <Link to="/change-password">Change Password</Link>
+                     <Link to="/reset-password">Reset Password</Link>
                   </li>
-
                </ul>
-            </nav >
+            </nav>
          }
          <Outlet />
       </>

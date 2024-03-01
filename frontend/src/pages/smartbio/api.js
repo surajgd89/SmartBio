@@ -1,23 +1,21 @@
-
 import axios from 'axios';
 const API_URL = `${process.env.REACT_APP_API_URL}`;
 
 //FETCH SINGLE USERS
-const fetchUser = async (id, setUser, setLoading) => {
+const FetchUser = async (id, setUser, setLoading) => {
    try {
       await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
       const response = await axios.get(`${API_URL}/users/${id}`);
       setUser(response.data);
    } catch (error) {
-      console.error('Error fetching user data:', error.message);
-      return { error: error.message };
+      setUser(error.response.data);
    } finally {
       setLoading(false);
    }
 };
 
 //CREATE USER
-const createUser = async (data, setUser, setLoading) => {
+const CreateUser = async (data, setUser, setLoading) => {
    try {
       await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
       const response = await axios.post(`${API_URL}/users`, data);
@@ -31,7 +29,7 @@ const createUser = async (data, setUser, setLoading) => {
 };
 
 //UPDATE USER
-const updateUser = async (id, data, setUser, setLoading) => {
+const UpdateUser = async (id, data, setUser, setLoading) => {
    try {
       await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
       const response = await axios.put(`${API_URL}/users/${id}`, data);
@@ -45,7 +43,7 @@ const updateUser = async (id, data, setUser, setLoading) => {
 };
 
 //DELETE USER
-const deleteUser = async (id, setUser, setLoading) => {
+const DeleteUser = async (id, setUser, setLoading) => {
    try {
       await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
       const response = await axios.delete(`${API_URL}/users/${id}`);
@@ -59,7 +57,7 @@ const deleteUser = async (id, setUser, setLoading) => {
 };
 
 //FETCH ALL USERS
-const fetchUsers = async (setUsers, setLoading) => {
+const FetchUsers = async (setUsers, setLoading) => {
    try {
       await new Promise(resolve => setTimeout(resolve, Math.random() * 2000));
       const response = await axios.get(`${API_URL}/users`);
@@ -72,4 +70,6 @@ const fetchUsers = async (setUsers, setLoading) => {
 };
 
 
-export { fetchUser };
+export {
+   FetchUser, CreateUser, UpdateUser, DeleteUser, FetchUsers
+};
