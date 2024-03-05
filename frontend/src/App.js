@@ -1,5 +1,5 @@
 import { AppContext } from "./AppContext";
-import { FetchUser } from './api';
+import { FetchUser } from './API';
 
 import { useRef, useEffect, useState } from 'react';
 import html2canvas from 'html2canvas';
@@ -101,7 +101,12 @@ function App() {
         setContentPadding(padding);
     };
 
-
+    useEffect(() => {
+        if (ContentDiv.current) {
+            getOffsetTop();
+            getPadding();
+        }
+    }, [user]);
 
     useEffect(() => {
 
@@ -176,18 +181,11 @@ function App() {
         if (id) {
             FetchUser(id, setUser, setLoading);
         }
-
-        if (ContentDiv.current) {
-            getOffsetTop();
-            getPadding();
-        }
-
     }, [id]);
 
 
-
     if (user.error === "User not found") {
-        return <div>Error</div>
+        return <div>{user.error}</div>
     }
 
     if (Loading) {
