@@ -2,7 +2,7 @@
 import './intro.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
-import TypeAnimation from 'react-type-animation';
+import { TypeAnimation } from 'react-type-animation';
 function Intro({ isDownload }) {
     const { user } = useContext(AppContext);
 

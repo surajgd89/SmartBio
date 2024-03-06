@@ -5,7 +5,6 @@ import { useRef, useEffect, useState } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
-import { RotatingSquare } from 'react-loader-spinner';
 import ScrollToTop from 'react-scroll-to-top';
 import './App.scss';
 
@@ -29,15 +28,16 @@ import Projects from './components/projects/Projects';
 import Declare from './components/declare/Declare';
 import Footer from './components/footer/Footer';
 
+import UserNotFound from './components/user-not-found/UserNotFound'
+import ProductLanding from './components/product-landing/ProductLanding'
+
 
 function App() {
 
 
     const [user, setUser] = useState({});
     const [Loading, setLoading] = useState(true);
-
     const [id, setId] = useState('');
-
     const { certifications, awards, references, followMe, theme } = user;
 
     const [SidebarActive, setSidebarActive] = useState(false);
@@ -178,6 +178,7 @@ function App() {
     }, []);
 
     useEffect(() => {
+        //console.log(window.location.search)
         if (id) {
             FetchUser(id, setUser, setLoading);
         }
@@ -185,18 +186,15 @@ function App() {
 
 
     if (user.error === "User not found") {
-        return <div>{user.error}</div>
+        return <UserNotFound />
+    }
+
+    if (id === '' || id === null) {
+        return <ProductLanding />
     }
 
     if (Loading) {
-        return <RotatingSquare
-            ariaLabel="rotating-square"
-            visible={Loading}
-            height="70"
-            width="70"
-            wrapperClass="loader"
-            strokeWidth="5"
-        />
+        return <div className="loader"></div>
     }
 
     return (

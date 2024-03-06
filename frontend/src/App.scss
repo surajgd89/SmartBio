@@ -12,34 +12,6 @@ a {
 
 //PAGE CLASSES
 
-.loader {
-    background-color: var(--tertiary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 3;
-
-    svg {
-        rect {
-            &:first-child {
-                stroke: #fff;
-            }
-
-            &:last-child {
-                fill: #fff;
-            }
-        }
-    }
-}
-
 .scroll-to-top {
     background-color: var(--primary);
     right: 20px;
@@ -79,8 +51,60 @@ a {
     }
 }
 
+.loader {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+    background: url('./assets/images/loader.svg') no-repeat center center
+        rgba(255, 255, 255, 1) fixed;
+    z-index: 3;
+}
+
 .main-container {
     position: relative;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    background-color: #303030;
+    background-image: linear-gradient(
+            #3b3b3b 1.2000000000000002px,
+            transparent 1.2000000000000002px
+        ),
+        linear-gradient(
+            90deg,
+            #3b3b3b 1.2000000000000002px,
+            transparent 1.2000000000000002px
+        ),
+        linear-gradient(
+            #3b3b3b 0.6000000000000001px,
+            transparent 0.6000000000000001px
+        ),
+        linear-gradient(
+            90deg,
+            #3b3b3b 0.6000000000000001px,
+            #303030 0.6000000000000001px
+        );
+    background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px;
+    background-position: -1.2000000000000002px -1.2000000000000002px,
+        -1.2000000000000002px -1.2000000000000002px,
+        -0.6000000000000001px -0.6000000000000001px,
+        -0.6000000000000001px -0.6000000000000001px;
+
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 }
 
 .container {
@@ -90,9 +114,6 @@ a {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
-    animation: fadeIn ease-in-out 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
 }
 
 .wrapper {
