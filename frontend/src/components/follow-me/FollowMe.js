@@ -1,4 +1,4 @@
-import './follow-me.scss';
+import './FollowMe.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function FollowMe() {

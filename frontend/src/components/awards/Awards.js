@@ -1,4 +1,4 @@
-import './awards.scss';
+import './Awards.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function Awards() {

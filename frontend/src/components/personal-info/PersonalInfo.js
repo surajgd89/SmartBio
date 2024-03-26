@@ -1,4 +1,4 @@
-import './personal-info.scss';
+import './PersonalInfo.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function PersonalInfo() {

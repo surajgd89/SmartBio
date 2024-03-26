@@ -1,4 +1,4 @@
-import './key-responsiblities.scss';
+import './KeyResponsiblities.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function KeyResponsiblities() {

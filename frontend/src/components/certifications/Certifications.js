@@ -1,4 +1,4 @@
-import './certifications.scss';
+import './Certifications.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 

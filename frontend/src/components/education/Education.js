@@ -1,4 +1,4 @@
-import './education.scss';
+import './Education.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function Education() {

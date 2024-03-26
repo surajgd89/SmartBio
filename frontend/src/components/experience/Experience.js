@@ -1,4 +1,4 @@
-import './experience.scss';
+import './Experience.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function Experience() {

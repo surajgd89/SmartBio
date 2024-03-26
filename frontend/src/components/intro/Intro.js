@@ -1,5 +1,5 @@
 
-import './intro.scss';
+import './Intro.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 import { TypeAnimation } from 'react-type-animation';

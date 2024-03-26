@@ -1,4 +1,4 @@
-import './career-overview.scss';
+import './CareerOverview.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
 function CareerOverview() {

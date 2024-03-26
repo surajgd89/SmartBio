@@ -49,34 +49,3 @@ html {
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
-    font-family: var(--font);
-    font-weight: var(--fw-light);
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    padding-left: 18px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: normal;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}

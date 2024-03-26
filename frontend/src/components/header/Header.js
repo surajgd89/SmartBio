@@ -1,4 +1,4 @@
-import './header.scss';
+import './Header.scss';
 import ProfilePicture from '../../components/profile-picture/ProfilePicture';
 import Intro from '../../components/intro/Intro';
 
