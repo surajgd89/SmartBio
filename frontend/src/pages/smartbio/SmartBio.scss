@@ -75,6 +75,7 @@ a {
         linear-gradient(to right, #111111 9.5px, transparent 9.5px);
     background-size: 10px 10px;
     background-color: #272727;
+    background-attachment: fixed;
 
     @keyframes fadeInAnimation {
         0% {
