@@ -5,9 +5,9 @@ function CareerOverview() {
     const { user } = useContext(AppContext);
     const { careerOverview } = user;
     return (
-        <section className='career-overview'>
-            <h2 className='heading'>Career Overview</h2>
-            <div className='description'>{careerOverview}</div>
+        <section className="career-overview">
+            <h2 className="heading">Career Overview</h2>
+            <div className="description">{careerOverview}</div>
         </section>
     );
 }

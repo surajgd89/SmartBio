@@ -7,16 +7,16 @@ function AboutMe() {
     const { aboutMe } = user;
 
     return (
-        <section className='about-me'>
-            <h2 className='heading'>About Me</h2>
-            <ul className='list'>
-
-                {
-                    aboutMe.map((item, index) => {
-                        return <li className='item' key={index}>{item}</li>;
-                    })
-                }
-
+        <section className="about-me">
+            <h2 className="heading">About Me</h2>
+            <ul className="list">
+                {aboutMe.map((item, index) => {
+                    return (
+                        <li className="item" key={index}>
+                            {item}
+                        </li>
+                    );
+                })}
             </ul>
         </section>
     );

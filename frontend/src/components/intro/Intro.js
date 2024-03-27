@@ -1,4 +1,3 @@
-
 import './Intro.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
@@ -9,14 +8,13 @@ function Intro({ isDownload }) {
     const { personalInfo, experience } = user;
     const { name, designation } = personalInfo;
 
-
     function calcExp(fromDate, toDate) {
         let exp;
         let current = new Date();
         let from = new Date(fromDate);
         let to = new Date(toDate);
         const monthInmiliseconds = 2590000000;
-        if (toDate === "Present") {
+        if (toDate === 'Present') {
             let difference = new Date(current - from).getTime();
             let months = Math.floor(difference / monthInmiliseconds);
             let yr = months / 12;
@@ -35,17 +33,19 @@ function Intro({ isDownload }) {
     experience.map((item, index) => {
         let workExp = calcExp(item.fromDate, item.toDate);
         totalExperience += workExp;
-        totalExperience = Math.floor(totalExperience)
+        totalExperience = Math.floor(totalExperience);
         return totalExperience;
-    })
-
+    });
 
     return (
-        <section className='intro'>
-            <h1 className='name'>{name.first} <span>{name.last}</span></h1>
-            <h2 className='designation' >
-
-                {isDownload ? designation[0] :
+        <section className="intro">
+            <h1 className="name">
+                {name.first} <span>{name.last}</span>
+            </h1>
+            <h2 className="designation">
+                {isDownload ? (
+                    designation[0]
+                ) : (
                     <TypeAnimation
                         cursor={false}
                         className="type"
@@ -53,10 +53,12 @@ function Intro({ isDownload }) {
                         wrapper="div"
                         repeat={Infinity}
                     />
-                }
+                )}
             </h2>
-            <div className='yr-experience'>
-                {totalExperience > 0 ? `${totalExperience} Year's of Experience` : "Fresher"}
+            <div className="yr-experience">
+                {totalExperience > 0
+                    ? `${totalExperience} Year's of Experience`
+                    : 'Fresher'}
             </div>
         </section>
     );
