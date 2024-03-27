@@ -1,7 +1,6 @@
-import './ProfilePicture.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
-
+import './ProfilePicture.scss';
 function ProfilePicture() {
     const { user } = useContext(AppContext);
     const { personalInfo } = user;

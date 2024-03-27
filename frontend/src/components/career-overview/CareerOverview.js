@@ -1,6 +1,7 @@
-import './CareerOverview.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
+import './CareerOverview.scss';
+
 function CareerOverview() {
     const { user } = useContext(AppContext);
     const { careerOverview } = user;

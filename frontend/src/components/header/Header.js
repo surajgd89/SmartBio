@@ -1,7 +1,6 @@
-import './Header.scss';
 import ProfilePicture from '../../components/profile-picture/ProfilePicture';
 import Intro from '../../components/intro/Intro';
-
+import './Header.scss';
 function Header({ download, XL, SM, HeaderFixed, sidebarToggle }) {
     return (
         <header className={HeaderFixed ? 'header fixed' : 'header'}>

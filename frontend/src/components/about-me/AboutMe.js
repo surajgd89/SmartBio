@@ -1,7 +1,6 @@
-import './AboutMe.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
-
+import './AboutMe.scss';
 function AboutMe() {
     const { user } = useContext(AppContext);
     const { aboutMe } = user;

@@ -1,6 +1,7 @@
-import './KeyResponsiblities.scss';
+
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
+import './KeyResponsiblities.scss';
 function KeyResponsiblities() {
     const { user } = useContext(AppContext);
     const { keyResponsiblities } = user;

@@ -1,6 +1,7 @@
-import './FollowMe.scss';
+
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
+import './FollowMe.scss';
 function FollowMe() {
     const { user } = useContext(AppContext);
     const { followMe } = user;

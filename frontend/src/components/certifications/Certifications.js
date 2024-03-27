@@ -1,7 +1,6 @@
-import './Certifications.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
-
+import './Certifications.scss';
 function Certifications() {
     const { user } = useContext(AppContext);
     const { certifications } = user;

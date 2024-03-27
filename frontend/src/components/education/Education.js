@@ -1,6 +1,6 @@
-import './Education.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
+import './Education.scss';
 function Education() {
     const { user } = useContext(AppContext);
     const { education } = user;

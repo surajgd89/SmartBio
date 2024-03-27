@@ -1,7 +1,6 @@
-import './Declare.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
-
+import './Declare.scss';
 function Declare({ download, XL }) {
     const { user } = useContext(AppContext);
 

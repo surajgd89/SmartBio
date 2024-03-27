@@ -1,6 +1,6 @@
-import './PersonalInfo.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
+import './PersonalInfo.scss';
 function PersonalInfo() {
     const { user } = useContext(AppContext);
     const { personalInfo } = user;

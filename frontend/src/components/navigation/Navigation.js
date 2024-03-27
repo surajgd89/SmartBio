@@ -1,5 +1,6 @@
-import './Navigation.scss';
+
 import { Link } from 'react-scroll';
+import './Navigation.scss';
 function Navigation({ sidebarToggle, ContentOffsetTop, ContentPadding }) {
     const padding = parseInt(ContentPadding);
     const offsetTop = ContentOffsetTop;

@@ -1,6 +1,6 @@
-import './References.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
+import './References.scss';
 function References() {
     const { user } = useContext(AppContext);
     const { references } = user;

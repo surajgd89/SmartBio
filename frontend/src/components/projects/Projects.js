@@ -1,6 +1,6 @@
-import './Projects.scss';
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
+import './Projects.scss';
 function Projects() {
     const { user } = useContext(AppContext);
     const { projects } = user;
