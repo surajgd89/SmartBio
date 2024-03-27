@@ -1,5 +1,5 @@
 import { AppContext } from '../../AppContext';
-import { FetchUser } from '../../API';
+import { FetchUser } from '../../App';
 import { useRef, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import html2canvas from 'html2canvas';
